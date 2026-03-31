@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  headline: string;
+  subtitle: string;
+  heroImage: ImageMetadata;
+  heroImageAlt?: string;
+  phone?: string;
+  ratingText?: string;
+}
+
+const {
+  headline,
+  subtitle,
+  heroImage,
+  heroImageAlt = 'Professional roofer working on a roof',
+  phone = '01225 985713',
+  ratingText = 'Rated 5/5 by customers',
+} = Astro.props;
+---
+
+<section class="hero hero--compact">
+  <Image
+    src={heroImage}
+    alt={heroImageAlt}
+    class="hero__bg"
+    widths={[600, 900, 1200]}
+    loading="eager"
+  />
+  <div class="hero__inner hero__inner--compact">
+    <div class="hero__content hero__content--compact">
+      <div class="hero__rating">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>{ratingText}</span>
+      </div>
+      <h1 class="hero__title">{headline}</h1>
+      <p class="hero__subtitle">{subtitle}</p>
+    </div>
+  </div>
+  <a href="#quote-form" class="hero__scroll-arrow" aria-label="Scroll to quote form">
+    <img src="/scroll-arrow.gif" alt="" width="64" height="64" />
+  </a>
+</section>

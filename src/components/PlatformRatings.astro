@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import googleLogo from '../assets/logos/google-colorful-logo.png';
+import facebookLogo from '../assets/logos/Facebook.png';
+import checkatradeLogo from '../assets/logos/checkatrade-approved-roofer.png';
+
+const platforms = [
+  { logo: googleLogo, alt: 'Google Reviews logo', rating: '4.7', count: 28, suffix: '', slug: 'google' },
+  { logo: facebookLogo, alt: 'Facebook Reviews logo', rating: '5.0', count: 16, suffix: '', slug: 'facebook' },
+  { logo: checkatradeLogo, alt: 'Checkatrade logo', rating: '10/10', count: 40, suffix: '+', slug: 'checkatrade' },
+];
+---
+
+<div class="platforms">
+  <div class="platforms__inner container">
+    {platforms.map((p) => (
+      <div class={`platform platform--${p.slug}`}>
+        <Image src={p.logo} alt={p.alt} width={400} quality={100} loading="lazy" class="platform__logo-img" />
+        <div class="platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="platform__meta">
+          Rated <strong>{p.rating}</strong> from <strong><span class="counter" data-target={p.count} data-suffix={p.suffix}>0</span>{p.suffix}</strong> reviews
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.target || '0');
+        const duration = 1500;
+        const start = performance.now();
+
+        function update(now: number) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toString();
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((c) => observer.observe(c));
+  }
+
+  animateCounters();
+</script>

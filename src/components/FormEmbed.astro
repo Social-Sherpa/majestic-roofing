@@ -1,0 +1,121 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  embedScript?: string;
+  phone?: string;
+}
+
+const {
+  title = 'Get a FREE Quote For Your Roofing Job',
+  subtitle = '',
+  embedScript = '',
+  phone = '01225 985713',
+} = Astro.props;
+
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<section class="form-section" id="quote-form">
+  <div class="form-section__inner container">
+    {title && (
+      <div class="form-section__header">
+        <h2 class="form-section__title">{title}</h2>
+        {subtitle && <p class="form-section__subtitle">{subtitle}</p>}
+      </div>
+    )}
+
+    <div class="form-section__embed">
+      {embedScript ? (
+        <Fragment set:html={embedScript} />
+      ) : (
+        <div class="form-section__placeholder">
+          <p>Multi-step quote form will be embedded here.</p>
+          <p class="form-section__placeholder-note">Set the <code>embedScript</code> prop to connect the external form.</p>
+        </div>
+      )}
+    </div>
+
+    <p class="form-section__or">Or call us now: <a href={phoneHref}><strong>{phone}</strong></a></p>
+  </div>
+</section>
+
+<script>
+  const observer = new MutationObserver(() => {
+    const iframe = document.querySelector('.form-section__embed iframe');
+    if (iframe) {
+      iframe.setAttribute('scrolling', 'no');
+      iframe.style.overflow = 'hidden';
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.querySelector('.form-section__embed')!, { childList: true, subtree: true });
+</script>
+
+<style>
+  .form-section {
+    background: var(--white);
+    padding: 0;
+  }
+
+  .form-section__inner {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .form-section__header {
+    margin-bottom: 32px;
+  }
+
+  .form-section__title {
+    margin-bottom: 8px;
+  }
+
+  .form-section__subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+  }
+
+  .form-section__embed {
+    margin-bottom: 0;
+  }
+
+  .form-section__embed :global(iframe) {
+    overflow: hidden;
+  }
+
+  .form-section__placeholder {
+    background: var(--light-grey);
+    border: 2px dashed var(--mid-grey);
+    border-radius: var(--radius-lg);
+    padding: 80px 32px;
+    color: var(--text-secondary);
+  }
+
+  .form-section__placeholder p {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+  }
+
+  .form-section__placeholder-note {
+    font-size: 0.85rem !important;
+    color: var(--text-light);
+  }
+
+  .form-section__placeholder code {
+    background: var(--white);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+
+  .form-section__or {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    padding-bottom: 24px;
+  }
+
+  .form-section__or a {
+    color: var(--action);
+  }
+</style>

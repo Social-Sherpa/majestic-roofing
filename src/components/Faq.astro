@@ -1,0 +1,132 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items?: FaqItem[];
+}
+
+const {
+  items = [
+    {
+      question: 'Do you charge for quotes or inspections?',
+      answer: 'No. We provide free, no-obligation quotes for all roofing work. We will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
+    },
+    {
+      question: 'How do I know if my roof needs repairing or replacing?',
+      answer: "Common signs include visible leaks or damp patches on ceilings, missing or cracked tiles, sagging areas, or moss and vegetation growth. If your roof is over 25 years old and showing these signs, a full replacement may be more cost-effective than ongoing repairs. We'll give you an honest assessment and recommend the best option for your situation.",
+    },
+    {
+      question: 'What does your warranty cover?',
+      answer: "Our warranty covers all workmanship from completion. If anything we've installed or repaired develops a fault, we'll come back and put it right at no cost to you. Materials carry the manufacturer's own warranty on top of this.",
+    },
+    {
+      question: 'How long does a new roof take?',
+      answer: "A standard semi-detached house typically takes between 5 and 10 working days, depending on weather, the complexity of the roof, and the materials chosen. We'll give you a clear timeline before work starts.",
+    },
+    {
+      question: 'Do you handle emergency roof repairs?',
+      answer: "Yes, we're available for emergencies. If you've got an urgent leak or storm damage, call us on 01225 985713 and we'll get someone to you as quickly as possible.",
+    },
+    {
+      question: 'What areas do you cover?',
+      answer: "We're based in Bristol and cover Bath, Clifton, Emersons Green, Horfield, Yate and surrounding areas. If you're unsure whether we cover your area, give us a call and we'll let you know.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section section--off-white">
+  <div class="container">
+    <div class="section__header">
+      <h2>Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      {items.map((item, i) => (
+        <div class={`faq-item${i === 0 ? ' active' : ''}`}>
+          <button class="faq-item__question">
+            <span>{item.question}</span>
+            <svg class="faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-item__answer-wrapper">
+            <div class="faq-item__answer">{item.answer}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+
+  .faq-item__question:hover {
+    color: var(--brand);
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    color: var(--text-light);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .faq-item__answer-wrapper {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-item__answer {
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .faq-item.active .faq-item__answer {
+    padding-bottom: 20px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-item__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.parentElement!.classList.toggle('active');
+    });
+  });
+</script>
