@@ -1,0 +1,1509 @@
+---
+import LandscapingLayout from '../../layouts/LandscapingLayout.astro';
+import { Image } from 'astro:assets';
+
+import heroImg from '../../assets/images/landscaping/hero-landscaped-garden-bath.png';
+import galleryPatio from '../../assets/images/landscaping/gallery-stone-patio-bath.png';
+import galleryDecking from '../../assets/images/landscaping/gallery-composite-decking.png';
+import galleryFencing from '../../assets/images/landscaping/gallery-timber-fencing.png';
+import galleryTransformation from '../../assets/images/landscaping/gallery-garden-transformation.png';
+import logo from '../../assets/brand/Majestic property services 500x200.png';
+
+import googleLogo from '../../assets/logos/google-colorful-logo.png';
+import facebookLogo from '../../assets/logos/Facebook.png';
+import checkatradeBadge from '../../assets/logos/Checkatrade-badge.png';
+
+// Images that don't exist yet use fallbacks
+// When team-laying-paving-bath.png, gallery-block-paving-driveway.png, and
+// gallery-new-lawn-borders.png are added to assets/images/landscaping/, import them above
+// and update the references below.
+
+const phone = '01225 985713';
+const phoneTel = 'tel:01225985713';
+
+const services = [
+  'Garden Design & Landscaping',
+  'Patio & Paving',
+  'Driveway & Block Paving',
+  'Fencing & Decking',
+  'Artificial Grass & Lawns',
+  'Brickwork & Walls',
+  'Garden Clearance',
+  'Pressure Washing',
+  'Other',
+];
+
+const propertyTypes = [
+  'Detached',
+  'Semi-Detached',
+  'Terraced',
+  'Bungalow',
+  'Flat',
+  'Commercial',
+];
+
+const faqs = [
+  {
+    question: 'How long have you been in the landscaping industry?',
+    answer: 'We have years of hands-on experience transforming gardens across Bath and the surrounding areas. Our team has worked on everything from small courtyard makeovers to full garden redesigns, driveways, patios, and commercial landscaping projects.',
+  },
+  {
+    question: 'Where are you based and what areas do you cover?',
+    answer: 'We are based in Bath and cover all surrounding areas including BA1, BA2, BA3, BS31, and beyond. If you are unsure whether we cover your area, give us a call on 01225 985713 and we will let you know.',
+  },
+  {
+    question: 'Will there be any hidden costs?',
+    answer: 'Absolutely not. We provide a detailed, written quote before any work begins. The price we quote is the price you pay. No surprises, no hidden extras, no call-out charges.',
+  },
+  {
+    question: 'Do you use sub-contractors?',
+    answer: 'No. All work is carried out by our own trained team. We never sub-contract your job out. That means consistent quality, clear communication, and full accountability from start to finish.',
+  },
+  {
+    question: 'Do you specialise in any particular landscaping service?',
+    answer: 'We handle the full range of landscaping and garden services, from patios and paving to fencing, decking, driveways, artificial grass, garden clearance, and complete garden redesigns. Whatever you need, we have the skills and experience to deliver it to a high standard.',
+  },
+  {
+    question: 'Will I have to pay for a consultation or quote?',
+    answer: 'No. Every consultation and quote is completely free with no obligation. We will visit your property, discuss your ideas, assess the work needed, and provide a clear written quote at no cost to you.',
+  },
+];
+
+const reviews = [
+  {
+    stars: 5,
+    title: 'Garden Landscaping',
+    body: 'Absolutely brilliant from start to finish. The team were polite, tidy, and really knew their stuff. Our garden looks completely different now. They took the time to understand what we wanted and delivered exactly that. Would recommend to anyone.',
+    name: 'Sarah T.',
+    location: 'BA2',
+  },
+  {
+    stars: 5,
+    title: 'Patio & Paving',
+    body: 'We had a full Indian sandstone patio laid and the finish is outstanding. The team worked through some difficult weather and still kept to schedule. Really impressed with the attention to detail and the cleanup afterwards.',
+    name: 'Mark H.',
+    location: 'BA1',
+  },
+  {
+    stars: 5,
+    title: 'Driveway',
+    body: 'Majestic did our block paving driveway and we could not be happier. From the initial visit to the final sweep-up, everything was professional and on time. The driveway looks fantastic and has completely changed the front of our house.',
+    name: 'David & Carol R.',
+    location: 'BS31',
+  },
+  {
+    stars: 5,
+    title: 'Garden Clearance & Artificial Grass',
+    body: 'Had a completely overgrown garden cleared and artificial grass put down. The transformation is incredible. The team worked hard and were friendly throughout. It is so low maintenance now and looks great all year round.',
+    name: 'Emma W.',
+    location: 'BA2',
+  },
+  {
+    stars: 5,
+    title: 'Full Garden Redesign',
+    body: 'From the initial quote to the final tidy-up, everything was handled professionally. They redesigned our entire back garden with new paving, raised beds, fencing, and lighting. It has completely transformed how we use the space.',
+    name: 'Paul & Janet M.',
+    location: 'BA3',
+  },
+  {
+    stars: 5,
+    title: 'Fencing & Decking',
+    body: 'New composite decking and close-board fencing installed. The quality of workmanship is excellent. They even helped us choose the right materials for our budget. Very happy with the result and the whole experience.',
+    name: 'Richard O.',
+    location: 'BA3',
+  },
+];
+
+const galleryImages = [
+  { src: galleryPatio, alt: 'Indian sandstone patio installation in Bath' },
+  { src: galleryFencing, alt: 'Close-board timber fencing in Bath' },
+  { src: galleryDecking, alt: 'Composite decking installation in Bath' },
+  { src: galleryTransformation, alt: 'Full garden transformation in Bath' },
+  // Add gallery-block-paving-driveway.png and gallery-new-lawn-borders.png when available
+];
+---
+
+<LandscapingLayout
+  title="Trusted Landscapers Bath | Majestic Property Services"
+  description="Expert landscaping and garden transformation services in Bath. Free quotes, no hidden fees. Patios, driveways, fencing, decking, and more. Call 01225 985713."
+>
+
+<!-- ===== 1. ANNOUNCEMENT BAR ===== -->
+<div class="announcement-bar">
+  <div class="ls-container">
+    <div class="announcement-bar__inner">
+      <span class="announcement-bar__message">
+        We'll price your landscaping job for FREE! Simply call <a href={phoneTel}>{phone}</a>
+      </span>
+      <div class="announcement-bar__ticks">
+        <span class="announcement-bar__tick">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+          Years of Experience
+        </span>
+        <span class="announcement-bar__tick">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+          All Work 100% Guaranteed
+        </span>
+        <span class="announcement-bar__tick">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+          Fully Insured
+        </span>
+        <span class="announcement-bar__tick">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+          No Call Out Charges
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. STICKY HEADER ===== -->
+<header class="ls-header" id="ls-header">
+  <div class="ls-container">
+    <div class="ls-header__inner">
+      <a href="/landscaping/" class="ls-header__logo">
+        <Image src={logo} alt="Majestic Property Services" width={180} height={72} />
+      </a>
+      <nav class="ls-header__nav">
+        <a href="#home">HOME</a>
+        <a href="#why-us">WHY US?</a>
+        <a href="#services">SERVICES</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#our-work">OUR WORK</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="ls-header__actions">
+        <a href="#quote-form" class="ls-btn ls-btn--green ls-header__cta">Get a FREE Quote</a>
+        <a href={phoneTel} class="ls-header__phone-btn" aria-label="Call us">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 3. HERO SECTION ===== -->
+<section class="ls-hero" id="home">
+  <div class="ls-hero__bg">
+    <Image src={heroImg} alt="Beautifully landscaped garden in Bath" width={1920} height={1080} loading="eager" />
+    <div class="ls-hero__overlay"></div>
+  </div>
+  <div class="ls-container">
+    <div class="ls-hero__grid">
+      <div class="ls-hero__content">
+        <span class="ls-hero__pre">Bath &amp; Surrounding Areas</span>
+        <h1>Bath's Expert Landscaping &amp; Garden Transformation Specialists</h1>
+        <p class="ls-hero__subtitle">From garden redesigns to patios, driveways, fencing, and decking. We handle every aspect of your outdoor space with care and craftsmanship.</p>
+        <div class="ls-hero__ticks">
+          <span class="ls-tick ls-tick--white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free, no-obligation quotes
+          </span>
+          <span class="ls-tick ls-tick--white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            All work fully guaranteed
+          </span>
+          <span class="ls-tick ls-tick--white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Experienced, local team
+          </span>
+          <span class="ls-tick ls-tick--white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            No hidden fees
+          </span>
+        </div>
+        <div class="ls-hero__cta-row">
+          <a href={phoneTel} class="ls-btn ls-btn--green">Call {phone}</a>
+        </div>
+        <p class="ls-hero__subtext">Or fill in the form to get your free quote online</p>
+      </div>
+
+      <!-- Hero Quote Form -->
+      <div class="ls-hero-form" id="quote-form">
+        <div class="ls-hero-form__tabs">
+          <button class="ls-hero-form__tab active" data-step="1">Step 1</button>
+          <button class="ls-hero-form__tab" data-step="2">Step 2</button>
+        </div>
+        <form action="#" method="POST" class="ls-hero-form__form">
+          <!-- Connect to CRM/webhook endpoint -->
+          <div class="ls-hero-form__step active" data-form-step="1">
+            <h3>Get Your FREE Quote</h3>
+            <div class="ls-form-group">
+              <select name="service" class="ls-input" required>
+                <option value="" disabled selected>What Landscaping Service Do You Need?</option>
+                {services.map(s => <option value={s}>{s}</option>)}
+              </select>
+            </div>
+            <div class="ls-form-group">
+              <select name="property_type" class="ls-input" required>
+                <option value="" disabled selected>What Type of Property Is This?</option>
+                {propertyTypes.map(p => <option value={p}>{p}</option>)}
+              </select>
+            </div>
+            <div class="ls-form-group">
+              <p class="ls-form-group__label">How Soon Do You Need Help?</p>
+              <div class="ls-radio-group">
+                <label class="ls-radio"><input type="radio" name="urgency" value="ASAP" required /> ASAP</label>
+                <label class="ls-radio"><input type="radio" name="urgency" value="This Month" /> This Month</label>
+                <label class="ls-radio"><input type="radio" name="urgency" value="Next 2-3 Months" /> Next 2-3 Months</label>
+              </div>
+            </div>
+            <button type="button" class="ls-btn ls-btn--green ls-btn--full" id="hero-form-next">Continue to Step 2</button>
+          </div>
+          <div class="ls-hero-form__step" data-form-step="2">
+            <h3>Your Details</h3>
+            <div class="ls-form-group">
+              <input type="text" name="name" class="ls-input" placeholder="Your Name" required />
+            </div>
+            <div class="ls-form-group">
+              <input type="email" name="email" class="ls-input" placeholder="Email Address" required />
+            </div>
+            <div class="ls-form-group">
+              <input type="tel" name="phone" class="ls-input" placeholder="Phone Number" required />
+            </div>
+            <div class="ls-form-group">
+              <input type="text" name="postcode" class="ls-input" placeholder="Postcode" required />
+            </div>
+            <button type="submit" class="ls-btn ls-btn--green ls-btn--full">Get My FREE Quote</button>
+            <button type="button" class="ls-hero-form__back" id="hero-form-back">Back to Step 1</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. REVIEW STRIP ===== -->
+<section class="ls-review-strip">
+  <div class="ls-container">
+    <div class="ls-review-strip__inner">
+      <span class="ls-review-strip__label">Excellent</span>
+      <div class="ls-stars">
+        {[1,2,3,4,5].map(() => (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+        ))}
+      </div>
+      <span class="ls-review-strip__score">5/5 based on 97+ reviews</span>
+      <div class="ls-review-strip__logos">
+        <Image src={googleLogo} alt="Google Reviews" width={80} height={28} />
+        <Image src={facebookLogo} alt="Facebook Reviews" width={80} height={28} />
+        <Image src={checkatradeBadge} alt="Checkatrade" width={80} height={28} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. WELCOME / ABOUT SECTION ===== -->
+<section class="ls-about ls-section" id="why-us">
+  <div class="ls-container">
+    <div class="ls-about__grid">
+      <div class="ls-about__image">
+        <Image src={heroImg} alt="Landscaping work in Bath" width={600} height={450} />
+      </div>
+      <div class="ls-about__content">
+        <h2>Are You Looking for a Trusted Landscaper in Bath? Speak to Majestic!</h2>
+        <p>We are a local landscaping team based in Bath, delivering high-quality garden transformations across the city and surrounding areas. Whether you need a new patio, a complete garden redesign, or a driveway that transforms the front of your home, we handle it all from start to finish.</p>
+        <p>Every quote is free and every project is completed by our own experienced team. No sub-contractors, no hidden charges, no surprises. Just honest, reliable work you can count on.</p>
+        <div class="ls-about__ticks">
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free, no-obligation quotes
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            All work 100% guaranteed
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Fully insured
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            No call-out charges
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Clean, tidy workmanship
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Experienced local team
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Rated 5/5 by our customers
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            No sub-contractors
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. OUTSTANDING REPUTATION ===== -->
+<section class="ls-reputation ls-section ls-section--grey">
+  <div class="ls-container">
+    <div class="ls-reputation__content">
+      <h2>Outstanding Reputation</h2>
+      <p>Our record speaks for itself. With 97+ verified reviews and a 5-star average, our customers consistently praise the quality of our work, the professionalism of our team, and the care we take with every project. We treat every garden as if it were our own.</p>
+      <p>We do not rush jobs. Every project gets a proper site visit, a detailed written estimate, and a planned schedule so you know exactly what is happening and when. That attention to detail is why so many of our customers recommend us to friends and family.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. SERVICES SECTION ===== -->
+<section class="ls-services ls-section" id="services">
+  <div class="ls-container">
+    <div class="ls-section__header">
+      <h2>Services</h2>
+      <p>We handle every aspect of your outdoor space</p>
+    </div>
+    <div class="ls-services__grid">
+      <div class="ls-services__col">
+        {['Garden Design', 'Landscape Gardening', 'Patios & Paving', 'Driveways & Block Paving', 'Fencing & Decking', 'Artificial Grass & New Lawns'].map(service => (
+          <div class="ls-services__item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+      <div class="ls-services__col">
+        {['Brickwork & Retaining Walls', 'Garden Clearance', 'Pressure Washing', 'Outdoor Lighting', 'Tree & Hedge Work', 'Everything Else!'].map(service => (
+          <div class="ls-services__item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            <span>{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="ls-services__cta">
+      <a href={phoneTel} class="ls-btn ls-btn--green">Call {phone} for a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. REVIEWS SECTION ===== -->
+<section class="ls-reviews ls-section" id="reviews">
+  <div class="ls-container">
+    <div class="ls-section__header">
+      <div class="ls-reviews__header-row">
+        <div class="ls-stars ls-stars--lg">
+          {[1,2,3,4,5].map(() => (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+          ))}
+        </div>
+      </div>
+      <h2>What Our Customers Say</h2>
+      <div class="ls-reviews__logos">
+        <Image src={googleLogo} alt="Google" width={70} height={24} />
+        <Image src={facebookLogo} alt="Facebook" width={70} height={24} />
+        <Image src={checkatradeBadge} alt="Checkatrade" width={70} height={24} />
+      </div>
+    </div>
+    <div class="ls-reviews__grid">
+      {reviews.map(review => (
+        <div class="ls-review-card">
+          <div class="ls-stars">
+            {Array.from({length: review.stars}).map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+            ))}
+          </div>
+          <h4 class="ls-review-card__title">{review.title}</h4>
+          <p class="ls-review-card__body">{review.body}</p>
+          <p class="ls-review-card__author">{review.name} <span>({review.location})</span></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. OUR WORK GALLERY ===== -->
+<section class="ls-gallery ls-section" id="our-work">
+  <div class="ls-container">
+    <div class="ls-section__header">
+      <h2>Our Work</h2>
+      <p>A selection of recent landscaping projects across Bath</p>
+    </div>
+    <div class="ls-gallery__grid">
+      {galleryImages.map(img => (
+        <div class="ls-gallery__item">
+          <Image src={img.src} alt={img.alt} width={600} height={450} />
+        </div>
+      ))}
+    </div>
+    <div class="ls-gallery__cta">
+      <a href={phoneTel} class="ls-btn ls-btn--green">Discuss Your Project: {phone}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. FAQ SECTION ===== -->
+<section class="ls-faq ls-section ls-section--grey" id="faq">
+  <div class="ls-container">
+    <div class="ls-section__header">
+      <h2>Your Questions</h2>
+    </div>
+    <div class="ls-faq__list">
+      {faqs.map((faq, i) => (
+        <div class={`ls-faq__item${i === 0 ? ' active' : ''}`}>
+          <button class="ls-faq__question">
+            <span>{faq.question}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="ls-faq__answer-wrapper">
+            <div class="ls-faq__answer">{faq.answer}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. FINAL QUOTE FORM ===== -->
+<section class="ls-final-form ls-section">
+  <div class="ls-container">
+    <div class="ls-section__header">
+      <h2>We'll Quote Your Job For FREE!</h2>
+      <p>Fill in the form below and we will get back to you with a no-obligation quote</p>
+    </div>
+    <div class="ls-final-form__grid">
+      <form action="#" method="POST" class="ls-final-form__form">
+        <!-- Connect to CRM/webhook endpoint -->
+        <div class="ls-form-group">
+          <label for="ff-service">What service do you need?</label>
+          <select name="service" id="ff-service" class="ls-input" required>
+            <option value="" disabled selected>Select a service</option>
+            {services.map(s => <option value={s}>{s}</option>)}
+          </select>
+        </div>
+        <div class="ls-form-group">
+          <label for="ff-details">Tell us about your project</label>
+          <textarea name="details" id="ff-details" class="ls-input" placeholder="Describe your project, any specific requirements, or questions you have..." rows="4"></textarea>
+        </div>
+        <div class="ls-final-form__row">
+          <div class="ls-form-group">
+            <label for="ff-postcode">Postcode</label>
+            <input type="text" name="postcode" id="ff-postcode" class="ls-input" placeholder="e.g. BA1 1AA" required />
+          </div>
+          <div class="ls-form-group">
+            <label for="ff-firstname">First Name</label>
+            <input type="text" name="firstname" id="ff-firstname" class="ls-input" placeholder="First Name" required />
+          </div>
+        </div>
+        <div class="ls-final-form__row">
+          <div class="ls-form-group">
+            <label for="ff-lastname">Last Name</label>
+            <input type="text" name="lastname" id="ff-lastname" class="ls-input" placeholder="Last Name" required />
+          </div>
+          <div class="ls-form-group">
+            <label for="ff-email">Email</label>
+            <input type="email" name="email" id="ff-email" class="ls-input" placeholder="Email Address" required />
+          </div>
+        </div>
+        <div class="ls-form-group">
+          <label for="ff-phone">Phone</label>
+          <input type="tel" name="phone" id="ff-phone" class="ls-input" placeholder="Phone Number" required />
+        </div>
+        <div class="ls-form-group">
+          <label class="ls-checkbox">
+            <input type="checkbox" name="privacy" required />
+            <span>I agree to the <a href="#" style="color: var(--ls-action); text-decoration: underline;">privacy policy</a> and consent to being contacted about my enquiry.</span>
+          </label>
+        </div>
+        <button type="submit" class="ls-btn ls-btn--green ls-btn--full">Get My FREE Quote</button>
+      </form>
+      <div class="ls-final-form__trust">
+        <div class="ls-final-form__ticks">
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free, no-obligation quotes
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            No hidden costs
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            All work fully guaranteed
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Fully insured
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            No sub-contractors
+          </span>
+          <span class="ls-tick ls-tick--green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            97+ verified reviews
+          </span>
+        </div>
+        <div class="ls-final-form__testimonial">
+          <div class="ls-stars">
+            {[1,2,3,4,5].map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+            ))}
+          </div>
+          <p>"From the initial quote to the final tidy-up, everything was handled professionally. They redesigned our entire back garden. It has completely transformed how we use the space."</p>
+          <span>Paul & Janet M., BA3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. FOOTER ===== -->
+<footer class="ls-footer ls-section--navy">
+  <div class="ls-container">
+    <div class="ls-footer__grid">
+      <div class="ls-footer__col">
+        <Image src={logo} alt="Majestic Property Services" width={160} height={64} class="ls-footer__logo" />
+        <p class="ls-footer__tagline">Expert landscaping and garden transformations across Bath and surrounding areas.</p>
+      </div>
+      <div class="ls-footer__col">
+        <h4>Quick Links</h4>
+        <nav class="ls-footer__nav">
+          <a href="#home">Home</a>
+          <a href="#why-us">Why Us?</a>
+          <a href="#services">Services</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#our-work">Our Work</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+      <div class="ls-footer__col">
+        <h4>Contact Us</h4>
+        <div class="ls-footer__contact">
+          <a href={phoneTel} class="ls-footer__phone">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" /></svg>
+            {phone}
+          </a>
+          <p>Bath & Surrounding Areas</p>
+        </div>
+      </div>
+    </div>
+    <div class="ls-footer__bottom">
+      <p>&copy; 2026 Majestic Property Services. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== 13. MOBILE STICKY BAR ===== -->
+<div class="ls-mobile-bar">
+  <a href={phoneTel} class="ls-mobile-bar__btn ls-mobile-bar__btn--navy">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" /></svg>
+    Call Now
+  </a>
+  <a href="#quote-form" class="ls-mobile-bar__btn ls-mobile-bar__btn--green">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94A48.972 48.972 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.634a3 3 0 003 3h1.5a.75.75 0 01.75.75v2.19l2.72-2.72a.75.75 0 01.53-.22H18a3.375 3.375 0 003.375-3.375V9.375A3.375 3.375 0 0018 6h-7.498z" /><path fill-rule="evenodd" d="M15.75 9.75a.75.75 0 000 1.5h.008a.75.75 0 000-1.5h-.008zM12 9.75a.75.75 0 000 1.5h.008a.75.75 0 000-1.5H12zM8.25 9.75a.75.75 0 000 1.5h.008a.75.75 0 000-1.5H8.25z" /></svg>
+    Get a FREE Quote
+  </a>
+</div>
+
+</LandscapingLayout>
+
+<style>
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .announcement-bar {
+    background: var(--ls-brand);
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+
+  .announcement-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .announcement-bar__message a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .announcement-bar__ticks {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .announcement-bar__tick {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .announcement-bar__tick svg {
+    color: var(--ls-action);
+  }
+
+  @media (max-width: 768px) {
+    .announcement-bar__ticks {
+      display: none;
+    }
+
+    .announcement-bar__inner {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  /* ===== HEADER ===== */
+  .ls-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid var(--ls-border);
+    padding: 0;
+  }
+
+  .ls-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 24px;
+  }
+
+  .ls-header__logo img {
+    height: 48px;
+    width: auto;
+  }
+
+  .ls-header__nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  .ls-header__nav a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--ls-black);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .ls-header__nav a:hover {
+    color: var(--ls-action);
+  }
+
+  .ls-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ls-header__cta {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  .ls-header__phone-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--ls-action);
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .ls-header__nav {
+      display: none;
+    }
+
+    .ls-header__cta {
+      display: none;
+    }
+
+    .ls-header__phone-btn {
+      display: flex;
+    }
+  }
+
+  /* ===== HERO ===== */
+  .ls-hero {
+    position: relative;
+    padding: 80px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  .ls-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .ls-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ls-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .ls-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .ls-hero__pre {
+    display: inline-block;
+    color: var(--ls-action);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .ls-hero h1 {
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+
+  .ls-hero__subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .ls-hero__ticks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-bottom: 28px;
+  }
+
+  .ls-hero__cta-row {
+    margin-bottom: 12px;
+  }
+
+  .ls-hero__subtext {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  /* Hero Form */
+  .ls-hero-form {
+    background: #ffffff;
+    border-radius: var(--ls-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    color: var(--ls-black);
+  }
+
+  .ls-hero-form__tabs {
+    display: flex;
+  }
+
+  .ls-hero-form__tab {
+    flex: 1;
+    padding: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--ls-light-grey);
+    border: none;
+    color: var(--ls-text-secondary);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .ls-hero-form__tab.active {
+    background: #ffffff;
+    color: var(--ls-brand);
+  }
+
+  .ls-hero-form__form {
+    padding: 24px;
+  }
+
+  .ls-hero-form__step {
+    display: none;
+  }
+
+  .ls-hero-form__step.active {
+    display: block;
+  }
+
+  .ls-hero-form__step h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .ls-form-group__label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .ls-radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ls-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .ls-radio input {
+    accent-color: var(--ls-action);
+  }
+
+  .ls-hero-form__back {
+    display: block;
+    margin: 12px auto 0;
+    background: none;
+    border: none;
+    color: var(--ls-text-secondary);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (max-width: 960px) {
+    .ls-hero__grid {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+
+    .ls-hero__ticks {
+      display: none;
+    }
+
+    .ls-hero__cta-row {
+      display: none;
+    }
+
+    .ls-hero__subtext {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ls-hero {
+      padding: 48px 0;
+    }
+  }
+
+  /* ===== REVIEW STRIP ===== */
+  .ls-review-strip {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--ls-border);
+  }
+
+  .ls-review-strip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ls-review-strip__label {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ls-black);
+  }
+
+  .ls-review-strip__score {
+    font-size: 0.95rem;
+    color: var(--ls-text-secondary);
+  }
+
+  .ls-review-strip__logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ls-review-strip__logos img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 480px) {
+    .ls-review-strip__logos {
+      display: none;
+    }
+  }
+
+  /* ===== ABOUT ===== */
+  .ls-about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .ls-about__image img {
+    border-radius: var(--ls-radius-lg);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .ls-about__content h2 {
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+  }
+
+  .ls-about__content p {
+    color: var(--ls-text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .ls-about__ticks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .ls-about__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ls-about__ticks {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== REPUTATION ===== */
+  .ls-reputation__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .ls-reputation__content h2 {
+    margin-bottom: 24px;
+  }
+
+  .ls-reputation__content p {
+    color: var(--ls-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .ls-reputation__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ===== SERVICES ===== */
+  .ls-services__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 64px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .ls-services__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ls-border);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .ls-services__item svg {
+    color: var(--ls-action);
+    flex-shrink: 0;
+  }
+
+  .ls-services__cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 480px) {
+    .ls-services__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== REVIEWS ===== */
+  .ls-reviews__header-row {
+    margin-bottom: 12px;
+  }
+
+  .ls-stars--lg svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ls-reviews__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+  }
+
+  .ls-reviews__logos img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+  }
+
+  .ls-reviews__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .ls-review-card {
+    background: var(--ls-light-grey);
+    border-radius: var(--ls-radius-lg);
+    padding: 28px;
+  }
+
+  .ls-review-card .ls-stars {
+    margin-bottom: 12px;
+  }
+
+  .ls-review-card .ls-stars svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ls-review-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--ls-brand);
+  }
+
+  .ls-review-card__body {
+    font-size: 0.9rem;
+    color: var(--ls-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .ls-review-card__author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ls-black);
+  }
+
+  .ls-review-card__author span {
+    font-weight: 400;
+    color: var(--ls-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .ls-reviews__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== GALLERY ===== */
+  .ls-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .ls-gallery__item {
+    border-radius: var(--ls-radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .ls-gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .ls-gallery__item:hover img {
+    transform: scale(1.05);
+  }
+
+  .ls-gallery__cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .ls-gallery__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ls-gallery__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== FAQ ===== */
+  .ls-faq__list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .ls-faq__item {
+    border-bottom: 1px solid var(--ls-border);
+  }
+
+  .ls-faq__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ls-black);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s;
+  }
+
+  .ls-faq__question:hover {
+    color: var(--ls-action);
+  }
+
+  .ls-faq__question svg {
+    flex-shrink: 0;
+    color: var(--ls-text-secondary);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ls-faq__item.active .ls-faq__question svg {
+    transform: rotate(180deg);
+  }
+
+  .ls-faq__answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ls-faq__item.active .ls-faq__answer-wrapper {
+    grid-template-rows: 1fr;
+  }
+
+  .ls-faq__answer {
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: var(--ls-text-secondary);
+    line-height: 1.7;
+  }
+
+  .ls-faq__item.active .ls-faq__answer {
+    padding-bottom: 20px;
+  }
+
+  /* ===== FINAL FORM ===== */
+  .ls-final-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .ls-final-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .ls-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ls-text-secondary);
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .ls-checkbox input {
+    margin-top: 3px;
+    accent-color: var(--ls-action);
+    flex-shrink: 0;
+  }
+
+  .ls-final-form__ticks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .ls-final-form__testimonial {
+    background: var(--ls-light-grey);
+    border-radius: var(--ls-radius-lg);
+    padding: 24px;
+  }
+
+  .ls-final-form__testimonial .ls-stars {
+    margin-bottom: 12px;
+  }
+
+  .ls-final-form__testimonial .ls-stars svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ls-final-form__testimonial p {
+    font-size: 0.9rem;
+    color: var(--ls-text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .ls-final-form__testimonial span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ls-black);
+  }
+
+  @media (max-width: 768px) {
+    .ls-final-form__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ls-final-form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ===== FOOTER ===== */
+  .ls-footer {
+    padding: 64px 0 0;
+  }
+
+  .ls-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+
+  .ls-footer__logo {
+    margin-bottom: 16px;
+  }
+
+  .ls-footer__logo img {
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .ls-footer__tagline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .ls-footer h4 {
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .ls-footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ls-footer__nav a {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .ls-footer__nav a:hover {
+    opacity: 1;
+  }
+
+  .ls-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ls-footer__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .ls-footer__contact p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .ls-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .ls-footer__bottom p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .ls-footer__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* ===== MOBILE BAR ===== */
+  .ls-mobile-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    background: #ffffff;
+    border-top: 1px solid var(--ls-border);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    gap: 10px;
+  }
+
+  .ls-mobile-bar__btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--ls-radius);
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .ls-mobile-bar__btn--navy {
+    background: var(--ls-brand);
+  }
+
+  .ls-mobile-bar__btn--green {
+    background: var(--ls-action);
+  }
+
+  @media (max-width: 768px) {
+    .ls-mobile-bar {
+      display: flex;
+    }
+
+    /* Pad bottom of page so content is not hidden behind mobile bar */
+    .ls-footer {
+      padding-bottom: 80px;
+    }
+  }
+</style>
+
+<script>
+  // ===== Two-step hero form =====
+  const heroFormNext = document.getElementById('hero-form-next');
+  const heroFormBack = document.getElementById('hero-form-back');
+  const step1 = document.querySelector('[data-form-step="1"]');
+  const step2 = document.querySelector('[data-form-step="2"]');
+  const tab1 = document.querySelector('[data-step="1"]');
+  const tab2 = document.querySelector('[data-step="2"]');
+
+  function showStep(step: number) {
+    if (step === 2) {
+      step1?.classList.remove('active');
+      step2?.classList.add('active');
+      tab1?.classList.remove('active');
+      tab2?.classList.add('active');
+    } else {
+      step2?.classList.remove('active');
+      step1?.classList.add('active');
+      tab2?.classList.remove('active');
+      tab1?.classList.add('active');
+    }
+  }
+
+  heroFormNext?.addEventListener('click', () => showStep(2));
+  heroFormBack?.addEventListener('click', () => showStep(1));
+
+  tab1?.addEventListener('click', () => showStep(1));
+  tab2?.addEventListener('click', () => showStep(2));
+
+  // ===== FAQ accordion =====
+  document.querySelectorAll('.ls-faq__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = (btn as HTMLElement).parentElement;
+      item?.classList.toggle('active');
+    });
+  });
+
+  // ===== Smooth scroll for nav links =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const href = (anchor as HTMLAnchorElement).getAttribute('href');
+      if (href && href !== '#') {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>

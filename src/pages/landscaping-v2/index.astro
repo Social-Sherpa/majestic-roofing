@@ -1,0 +1,2110 @@
+---
+import { Image } from 'astro:assets';
+import LandscapingV2Layout from '../../layouts/LandscapingV2Layout.astro';
+
+// Images
+import heroImg from '../../assets/images/landscaping/hero-landscaped-garden-bath.png';
+import teamImg from '../../assets/images/landscaping/team-laying-paving-bath.png';
+import galleryPatio from '../../assets/images/landscaping/gallery-stone-patio-bath.png';
+import galleryDriveway from '../../assets/images/landscaping/gallery-block-paving-driveway.png';
+import galleryGrass from '../../assets/images/landscaping/gallery-new-lawn-borders.png';
+import galleryFencing from '../../assets/images/landscaping/gallery-timber-fencing.png';
+import galleryDecking from '../../assets/images/landscaping/gallery-composite-decking.png';
+import galleryGarden from '../../assets/images/landscaping/gallery-garden-transformation.png';
+
+// Brand
+import logo from '../../assets/brand/Majestic property services 500x200.png';
+
+// Logos
+import reviewIcons from '../../assets/logos/review-platform-icons.webp';
+import checkatradeLogo from '../../assets/logos/checkatrade-approved-roofer.png';
+import googleLogo from '../../assets/logos/google-colorful-logo.png';
+import facebookLogo from '../../assets/logos/Facebook.png';
+
+// Accreditation logos
+import nhbc from '../../assets/logos/NHBC.webp';
+import constructionline from '../../assets/logos/Constructiononline.webp';
+import masterBuilders from '../../assets/logos/MasterBuilders.webp';
+import chas from '../../assets/logos/CHAS.webp';
+import nfrc from '../../assets/logos/NFRC.webp';
+import corc from '../../assets/logos/Confederation-of-roofing-contractors.webp';
+
+// Customer avatars
+import avatar1 from '../../assets/images/customer-avatar-1.webp';
+import avatar2 from '../../assets/images/customer-avatar-2.webp';
+import avatar3 from '../../assets/images/customer-avatar-3.webp';
+import avatar4 from '../../assets/images/customer-avatar-4.webp';
+
+const phone = '01225 985713';
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+
+const services = [
+  { label: 'Garden Design & Landscaping', img: galleryDecking, alt: 'Composite decking and garden design in Bath' },
+  { label: 'Patios & Paving', img: galleryPatio, alt: 'Indian sandstone patio laid in a Bath garden' },
+  { label: 'Driveways & Block Paving', img: galleryDriveway, alt: 'Block paving driveway installed in Bath' },
+  { label: 'Fencing & Decking', img: galleryFencing, alt: 'Timber fencing and garden boundary in Bath' },
+  { label: 'Artificial Grass & Lawns', img: galleryGrass, alt: 'New lawn and garden borders in Bath' },
+  { label: 'Garden Clearance', img: galleryGarden, alt: 'Complete garden transformation and clearance in Bath' },
+];
+
+const accreditationLogos = [
+  { src: nhbc, alt: 'NHBC accredited' },
+  { src: constructionline, alt: 'Constructionline certified' },
+  { src: masterBuilders, alt: 'Federation of Master Builders member' },
+  { src: chas, alt: 'CHAS accredited contractor' },
+  { src: nfrc, alt: 'NFRC certified' },
+  { src: corc, alt: 'Confederation of Contractors member' },
+];
+
+const testimonials = [
+  {
+    headline: 'Transformed our tired garden',
+    body: 'Absolutely brilliant from start to finish. John and the team transformed our tired back garden into something we\'re genuinely proud of. They turned up every day on time, kept everything tidy, and the finished patio is stunning.',
+    avatar: avatar1,
+    name: 'Sarah T., BA2',
+    job: 'Garden Landscaping',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+  },
+  {
+    headline: 'Several neighbours asked for their number',
+    body: 'We had a full Indian sandstone patio laid and new fencing installed. The team were professional throughout, no hidden costs, and the quality of the work is exceptional.',
+    avatar: avatar2,
+    name: 'Mark H., BA1',
+    job: 'Patio & Paving',
+    platformLogo: checkatradeLogo,
+    platformAlt: 'Checkatrade',
+    platformClass: 'checkatrade',
+  },
+  {
+    headline: 'Left the site spotless every evening',
+    body: 'Majestic did our block paving driveway and the result is incredible. They handled everything from groundwork to drainage. Competitive price, no fuss.',
+    avatar: avatar3,
+    name: 'David R., BS31',
+    job: 'Driveway',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+  },
+  {
+    headline: 'Will use again without question',
+    body: 'Had a completely overgrown garden cleared and artificial grass laid. The transformation in two days was unbelievable. Friendly team, fair price.',
+    avatar: avatar4,
+    name: 'Emma W., BA2',
+    job: 'Garden Clearance',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+  },
+];
+
+const aboutSlides = [
+  { src: galleryPatio, alt: 'Stone patio completed in Bath' },
+  { src: galleryDriveway, alt: 'Block paving driveway in Bath' },
+  { src: galleryGrass, alt: 'New lawn and borders in Bath' },
+  { src: galleryFencing, alt: 'Timber fencing in Bath' },
+  { src: galleryDecking, alt: 'Composite decking in Bath' },
+  { src: galleryGarden, alt: 'Garden transformation in Bath' },
+];
+
+const faqs = [
+  {
+    question: 'Do you charge for quotes or consultations?',
+    answer: 'No. We provide free, no-obligation quotes for all landscaping work. We will visit your property, discuss your ideas, and give you a detailed written estimate at no cost.',
+  },
+  {
+    question: 'What areas do you cover?',
+    answer: 'We cover Bath and all BA postcode areas, including Keynsham, Radstock, and surrounding villages. If you\'re unsure whether we cover your area, give us a call.',
+  },
+  {
+    question: 'Will there be any hidden costs?',
+    answer: 'Never. The written quote we give you is the final price. We don\'t add call-out fees, admin charges, or surprise extras. What we quote is what you pay.',
+  },
+  {
+    question: 'Do you use sub-contractors?',
+    answer: 'No. Every project is carried out by our own trained team. We don\'t sub-contract work to third parties, so you always know who is working on your property.',
+  },
+  {
+    question: 'How long does a typical landscaping project take?',
+    answer: 'It depends on the scope of the work. A simple patio might take 3 to 5 days, while a full garden transformation could take 2 to 3 weeks. We give you a clear timeline before any work starts.',
+  },
+  {
+    question: 'Do you handle garden waste removal?',
+    answer: 'Yes. All waste is removed from your property and disposed of responsibly. We leave your site clean and tidy at the end of every working day.',
+  },
+];
+
+const platforms = [
+  { logo: googleLogo, alt: 'Google Reviews logo', rating: '4.7', count: 20, suffix: '', slug: 'google' },
+  { logo: facebookLogo, alt: 'Facebook Reviews logo', rating: '5.0', count: 11, suffix: '', slug: 'facebook' },
+  { logo: checkatradeLogo, alt: 'Checkatrade logo', rating: '10/10', count: 29, suffix: '+', slug: 'checkatrade' },
+];
+---
+
+<LandscapingV2Layout
+  title="Trusted Landscaping Experts Bath | Majestic Services"
+  description="Professional landscaping services in Bath. Patios, driveways, fencing, garden design and more. Free quotes, no hidden fees. Call 01225 985713."
+>
+
+<!-- ============================================
+     SECTION 1: STICKY HEADER
+     ============================================ -->
+<header class="ls2-header">
+  <div class="ls2-header__inner">
+    <a class="ls2-header__logo" href="#">
+      <Image src={logo} alt="Majestic Services logo" width={376} quality={100} format="png" loading="eager" />
+    </a>
+
+    <div class="ls2-header__right">
+      <div class="ls2-header__badges">
+        <div class="ls2-header__badge ls2-header__badge--reviews">
+          <Image src={reviewIcons} alt="Review platform logos" width={400} quality={100} loading="eager" />
+          <div class="ls2-header__badge-text">
+            <span class="ls2-header__badge-score"><strong>Rated 4.9 Based On</strong></span>
+            <span class="ls2-header__badge-detail">97+ Verified Reviews</span>
+          </div>
+        </div>
+
+        <div class="ls2-header__badge-divider"></div>
+
+        <div class="ls2-header__badge ls2-header__badge--checkatrade">
+          <Image src={checkatradeLogo} alt="Checkatrade approved" width={400} quality={100} format="png" loading="eager" />
+          <div class="ls2-header__badge-text">
+            <span class="ls2-header__badge-score"><strong>Rated 10/10</strong> (40+ Reviews)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ls2-header__phone">
+        <div>
+          <div class="ls2-header__phone-number"><a href={phoneHref}>{phone}</a></div>
+          <div class="ls2-header__phone-label">Call Us For a Free Quote</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================
+     SECTION 2: TRUST BAR
+     ============================================ -->
+<div class="ls2-trust-strip">
+  <div class="ls2-trust-strip__inner ls2-container">
+    <span class="ls2-trust-strip__item">
+      <span class="ls2-trust-strip__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg></span>
+      5/5 Rated Business
+    </span>
+    <span class="ls2-trust-strip__item">
+      <span class="ls2-trust-strip__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg></span>
+      All Work Guaranteed
+    </span>
+    <span class="ls2-trust-strip__item">
+      <span class="ls2-trust-strip__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9.763 9.51a2.25 2.25 0 0 1 3.828-1.351.75.75 0 0 0 1.06-1.06 3.75 3.75 0 0 0-6.38 2.252c-.033.307 0 .595.032.822l.154 1.077H8.25a.75.75 0 0 0 0 1.5h.421l.138.964a3.75 3.75 0 0 1-.358 2.208l-.122.242a.75.75 0 0 0 .908 1.047l1.539-.512a1.5 1.5 0 0 1 .948 0l.655.218a3 3 0 0 0 2.29-.163l.666-.333a.75.75 0 1 0-.67-1.342l-.667.333a1.5 1.5 0 0 1-1.145.082l-.654-.218a3 3 0 0 0-1.898 0l-.06.02a5.25 5.25 0 0 0 .053-1.794l-.108-.752H12a.75.75 0 0 0 0-1.5H9.972l-.184-1.29a1.863 1.863 0 0 1-.025-.45Z" clip-rule="evenodd"/></svg></span>
+      No Hidden Fees
+    </span>
+    <span class="ls2-trust-strip__item">
+      <span class="ls2-trust-strip__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 1.5H5.625c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5Zm6.61 10.936a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 14.47a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/><path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z"/></svg></span>
+      Free Quotes
+    </span>
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 3: HERO (compact, centered, NO form)
+     ============================================ -->
+<section class="ls2-hero ls2-hero--compact">
+  <Image
+    src={heroImg}
+    alt="Beautifully landscaped garden in Bath"
+    class="ls2-hero__bg"
+    widths={[600, 900, 1200]}
+    loading="eager"
+  />
+  <div class="ls2-hero__inner ls2-hero__inner--compact">
+    <div class="ls2-hero__content ls2-hero__content--compact">
+      <div class="ls2-hero__rating">
+        <span class="ls2-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>Rated 5/5 by customers</span>
+      </div>
+      <h1 class="ls2-hero__title">Trusted Landscaping Experts Bath</h1>
+      <p class="ls2-hero__subtitle">Qualified landscapers with years of hands-on experience. We design it right, quote it fair, and guarantee every job.</p>
+    </div>
+  </div>
+  <a href="#quote-form" class="ls2-hero__scroll-arrow" aria-label="Scroll to quote form">
+    <img src="/scroll-arrow.gif" alt="" width="64" height="64" />
+  </a>
+</section>
+
+<!-- ============================================
+     SECTION 4: QUOTE FORM (two-step tiles)
+     ============================================ -->
+<section class="ls2-form-section" id="quote-form">
+  <div class="ls2-form-section__inner ls2-container">
+    <div class="ls2-form-section__header">
+      <h2 class="ls2-form-section__title">Get a FREE Quote For Your Landscaping Job</h2>
+      <p class="ls2-form-section__subtitle">What type of landscaping service do you need?</p>
+    </div>
+
+    <div class="ls2-form-step" id="ls2-form-step-1">
+      <div class="ls2-form-tiles">
+        <label class="ls2-form-tile">
+          <input type="radio" name="ls2-service" value="Patios & Paving" />
+          <span class="ls2-form-tile__radio"></span>
+          <span class="ls2-form-tile__label">Patios & Paving</span>
+        </label>
+        <label class="ls2-form-tile">
+          <input type="radio" name="ls2-service" value="Driveways & Block Paving" />
+          <span class="ls2-form-tile__radio"></span>
+          <span class="ls2-form-tile__label">Driveways & Block Paving</span>
+        </label>
+        <label class="ls2-form-tile">
+          <input type="radio" name="ls2-service" value="Fencing & Decking" />
+          <span class="ls2-form-tile__radio"></span>
+          <span class="ls2-form-tile__label">Fencing & Decking</span>
+        </label>
+        <label class="ls2-form-tile">
+          <input type="radio" name="ls2-service" value="Other Landscaping" />
+          <span class="ls2-form-tile__radio"></span>
+          <span class="ls2-form-tile__label">Other Landscaping</span>
+        </label>
+      </div>
+
+      <div class="ls2-form-progress">
+        <div class="ls2-form-progress__bar">
+          <div class="ls2-form-progress__fill" id="ls2-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ls2-form-step ls2-form-step--hidden" id="ls2-form-step-2">
+      <form action="#" class="ls2-form-fields">
+        <!-- Form action TBC -->
+        <input type="hidden" name="service" id="ls2-hidden-service" value="" />
+        <div class="ls2-form-field">
+          <input type="text" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="ls2-form-field">
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <div class="ls2-form-field">
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+        </div>
+        <div class="ls2-form-field">
+          <input type="text" name="postcode" placeholder="Postcode" required />
+        </div>
+        <button type="submit" class="ls2-btn ls2-btn--action ls2-form-submit">Get My Free Quote</button>
+      </form>
+    </div>
+
+    <p class="ls2-form-section__or">Or call us now: <a href={phoneHref}><strong>{phone}</strong></a></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5: ACCREDITATION LOGOS BAR
+     ============================================ -->
+<section class="ls2-accreditations">
+  <div class="ls2-accreditations__inner ls2-container">
+    {accreditationLogos.map((item) => (
+      <div class="ls2-accreditations__item">
+        <Image src={item.src} alt={item.alt} width={400} quality={100} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6: SERVICES GRID
+     ============================================ -->
+<section class="ls2-section">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>Professional Landscaping Services</h2>
+      <p>We handle everything from garden design to complete outdoor transformations. Every job includes a free survey and a fixed written quote.</p>
+    </div>
+    <div class="ls2-services-grid">
+      {services.map((s) => (
+        <div class="ls2-service-card">
+          <Image src={s.img} alt={s.alt} widths={[300, 450]} loading="lazy" />
+          <div class="ls2-service-card__overlay"></div>
+          <div class="ls2-service-card__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+    <div class="ls2-mid-cta">
+      <a href="#quote-form" class="ls2-btn ls2-btn--action">Get Your Free Landscaping Quote</a>
+      <span class="ls2-mid-cta__phone">Or call us now: <a href={phoneHref}>{phone}</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7: ABOUT SECTION
+     ============================================ -->
+<section class="ls2-section ls2-about-section">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>Welcome to Majestic Services LTD</h2>
+    </div>
+    <div class="ls2-about-split">
+      <div class="ls2-about-gallery">
+        <div class="ls2-about-gallery__track">
+          {aboutSlides.map((slide, i) => (
+            <div class={`ls2-about-gallery__slide ${i === 0 ? 'active' : ''}`} data-slide={i}>
+              <Image src={slide.src} alt={slide.alt} widths={[400, 600]} loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <button class="ls2-about-gallery__arrow ls2-about-gallery__arrow--prev" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="ls2-about-gallery__arrow ls2-about-gallery__arrow--next" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="ls2-about-gallery__dots">
+          {aboutSlides.map((_, i) => (
+            <button class={`ls2-about-gallery__dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Show image ${i + 1}`} />
+          ))}
+        </div>
+      </div>
+      <div class="ls2-about-split__content">
+        <p>Majestic Services are landscaping experts based in Bath. We're a fully certified, family-run business with years of experience delivering quality workmanship and a personal service.</p>
+        <p>No hidden charges. No call-out fees. Just clear, written quotes, completely FREE, so you can plan with confidence.</p>
+        <p>Call Majestic Services at <a href={phoneHref} class="ls2-about-split__phone">{phone}</a> for a free quote or a chat about your landscaping needs. We're always here to offer advice and support!</p>
+      </div>
+    </div>
+    <div class="ls2-mid-cta">
+      <a href="#quote-form" class="ls2-btn ls2-btn--action">Get Your Free Landscaping Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8: REVIEWS
+     ============================================ -->
+<section class="ls2-section" style="padding: 28px 0;">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>What Our Customers Say</h2>
+      <p>Real reviews from real homeowners across Bath</p>
+    </div>
+    <div class="ls2-testimonials-grid">
+      {testimonials.map((t, i) => (
+        <div class="ls2-testimonial-card" data-slide={i}>
+          <div class="ls2-testimonial-card__quote-mark">&ldquo;</div>
+          <div class="ls2-testimonial-card__headline">{t.headline}</div>
+          <p class="ls2-testimonial-card__body">{t.body}</p>
+          <div class="ls2-testimonial-card__footer">
+            <div class="ls2-testimonial-card__author">
+              <Image src={t.avatar} alt={t.name} width={80} quality={80} class="ls2-testimonial-card__avatar" />
+              <div>
+                <div class="ls2-testimonial-card__name">{t.name}</div>
+                <div class="ls2-testimonial-card__job">{t.job}</div>
+              </div>
+            </div>
+            <div class="ls2-testimonial-card__rating">
+              <div class="ls2-testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <Image src={t.platformLogo} alt={t.platformAlt} width={200} quality={100} class={`ls2-testimonial-card__platform-logo ls2-testimonial-card__platform-logo--${t.platformClass}`} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="ls2-testimonials-dots">
+      {testimonials.map((_, i) => (
+        <button class={`ls2-testimonials-dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Show review ${i + 1}`} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 9: PLATFORM RATINGS
+     ============================================ -->
+<div class="ls2-platforms">
+  <div class="ls2-platforms__inner ls2-container">
+    {platforms.map((p) => (
+      <div class={`ls2-platform ls2-platform--${p.slug}`}>
+        <Image src={p.logo} alt={p.alt} width={400} quality={100} loading="lazy" class="ls2-platform__logo-img" />
+        <div class="ls2-platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="ls2-platform__meta">
+          Rated <strong>{p.rating}</strong> from <strong><span class="ls2-counter" data-target={p.count} data-suffix={p.suffix}>0</span>{p.suffix}</strong> reviews
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 10: WHY CHOOSE US
+     ============================================ -->
+<section class="ls2-section ls2-section--off-white">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>Why Bath Trusts Majestic Services</h2>
+    </div>
+    <div class="ls2-usp-grid">
+      <div class="ls2-usp-item">
+        <div class="ls2-usp-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0"/></svg>
+        </div>
+        <div>
+          <h3>Years of Experience</h3>
+          <p>Our team brings extensive landscaping experience to every project across Bath and surrounding areas.</p>
+        </div>
+      </div>
+      <div class="ls2-usp-item">
+        <div class="ls2-usp-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75"/></svg>
+        </div>
+        <div>
+          <h3>Fixed Prices, No Surprises</h3>
+          <p>Every quote is detailed, written, and final. No hidden fees, no call-out charges, no nasty surprises.</p>
+        </div>
+      </div>
+      <div class="ls2-usp-item">
+        <div class="ls2-usp-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+        </div>
+        <div>
+          <h3>All Work Guaranteed</h3>
+          <p>We stand behind every job with a comprehensive guarantee on both materials and workmanship.</p>
+        </div>
+      </div>
+      <div class="ls2-usp-item">
+        <div class="ls2-usp-item__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+        </div>
+        <div>
+          <h3>Clean & Tidy Guarantee</h3>
+          <p>We leave your property spotless at the end of every working day. That's a promise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 11: HOW IT WORKS
+     ============================================ -->
+<section class="ls2-section">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>How It Works</h2>
+      <p>From first call to finished garden in three simple steps</p>
+    </div>
+    <div class="ls2-steps-grid">
+      <div class="ls2-step">
+        <div class="ls2-step__number">1</div>
+        <h3>Get in Touch</h3>
+        <p>Call us or fill in the form. We'll have a quick chat about what you need and book a free consultation at a time that works for you.</p>
+      </div>
+      <div class="ls2-step">
+        <div class="ls2-step__number">2</div>
+        <h3>Free Consultation & Quote</h3>
+        <p>John will visit your property, discuss your ideas, and give you an honest, written quote with no hidden costs.</p>
+      </div>
+      <div class="ls2-step">
+        <div class="ls2-step__number">3</div>
+        <h3>Work Completed to Standard</h3>
+        <p>We carry out the work on schedule, leave the site clean, and back everything with our guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 12: FAQ
+     ============================================ -->
+<section class="ls2-section ls2-section--off-white">
+  <div class="ls2-container">
+    <div class="ls2-section__header">
+      <h2>Common Questions</h2>
+    </div>
+    <div class="ls2-faq-list">
+      {faqs.map((item, i) => (
+        <div class={`ls2-faq-item${i === 0 ? ' active' : ''}`}>
+          <button class="ls2-faq-item__question">
+            <span>{item.question}</span>
+            <svg class="ls2-faq-item__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="ls2-faq-item__answer-wrapper">
+            <div class="ls2-faq-item__answer">{item.answer}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 13: FINAL CTA
+     ============================================ -->
+<section class="ls2-final-cta">
+  <div class="ls2-container">
+    <h2>Ready to Transform Your Garden?</h2>
+    <p class="ls2-final-cta__subtitle">Get a free, no-obligation quote from a team that's been trusted across Bath.</p>
+    <div class="ls2-final-cta__phone"><a href={phoneHref}>{phone}</a></div>
+    <div class="ls2-final-cta__row">
+      <a href={phoneHref} class="ls2-btn ls2-btn--call">Call Us Now</a>
+      <a href="#quote-form" class="ls2-btn ls2-btn--outline">Get a Free Quote</a>
+    </div>
+    <p class="ls2-final-cta__reassurance">No obligation. No hidden fees. Just honest landscaping.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 14: USP BAR
+     ============================================ -->
+<div class="ls2-usp-bar">
+  <div class="ls2-usp-bar__inner ls2-container">
+    <div class="ls2-usp-bar__item">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+      <span>Fully Trained Team</span>
+    </div>
+    <div class="ls2-usp-bar__item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+      <span>100% Service Guarantee</span>
+    </div>
+    <div class="ls2-usp-bar__item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+      <span>Fast Quotations</span>
+    </div>
+    <div class="ls2-usp-bar__item">
+      <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="1" /></svg>
+      <span>No Hidden Charges</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 15: FOOTER
+     ============================================ -->
+<footer class="ls2-footer">
+  <div class="ls2-container">
+    <div class="ls2-footer__inner">
+      <div>
+        <div class="ls2-footer__brand">Majestic Services</div>
+        <p>Landscaping experts serving Bath. Fully insured, fully guaranteed, and always here to help.</p>
+        <p style="margin-top:12px;"><a href={phoneHref} style="color:var(--ls2-white);">{phone}</a></p>
+        <p>Bath, UK</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Garden Design & Landscaping</li>
+          <li>Patios & Paving</li>
+          <li>Driveways & Block Paving</li>
+          <li>Fencing & Decking</li>
+          <li>Artificial Grass & Lawns</li>
+          <li>Garden Clearance</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Areas We Cover</h4>
+        <ul>
+          <li>Bath</li>
+          <li>Keynsham</li>
+          <li>Radstock</li>
+          <li>Surrounding areas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ls2-footer__bottom">
+      <span>&copy; {new Date().getFullYear()} Majestic Services Ltd. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     SECTION 16: MOBILE STICKY BAR
+     ============================================ -->
+<div class="ls2-mobile-bar">
+  <a href={phoneHref} class="ls2-mobile-bar__call">Call Now</a>
+  <a href="#quote-form" class="ls2-mobile-bar__quote">Get a Free Quote</a>
+</div>
+
+</LandscapingV2Layout>
+
+<style>
+  /* ============================================
+     HEADER
+     ============================================ */
+  .ls2-header {
+    background: var(--ls2-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #e8e8e6;
+  }
+
+  .ls2-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 24px;
+    max-width: var(--ls2-max-width);
+    margin: 0 auto;
+  }
+
+  .ls2-header__right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .ls2-header__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .ls2-header__logo img {
+    height: 86px;
+    width: auto;
+  }
+
+  .ls2-header__badges {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ls2-header__badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ls2-header__badge--reviews img {
+    width: 110px;
+    height: auto;
+  }
+
+  .ls2-header__badge--checkatrade img {
+    width: 80px;
+    height: auto;
+  }
+
+  .ls2-header__badge-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.72rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.3;
+  }
+
+  .ls2-header__badge-score {
+    font-size: 0.75rem;
+  }
+
+  .ls2-header__badge-detail {
+    color: var(--ls2-text-light);
+    font-size: 0.7rem;
+  }
+
+  .ls2-header__badge-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--ls2-border);
+  }
+
+  .ls2-header__phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+  }
+
+  .ls2-header__phone-number {
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ls2-header__phone-number a {
+    color: var(--ls2-brand);
+  }
+
+  .ls2-header__phone-label {
+    font-size: 0.7rem;
+    color: var(--ls2-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 960px) {
+    .ls2-header__badges {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ls2-header__inner {
+      padding: 8px 16px;
+    }
+
+    .ls2-header__logo img {
+      height: 54px;
+    }
+
+    .ls2-header__phone-label {
+      display: none;
+    }
+
+    .ls2-header__phone-number {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* ============================================
+     TRUST STRIP
+     ============================================ */
+  .ls2-trust-strip {
+    background: var(--ls2-brand);
+    padding: 10px 0;
+  }
+
+  .ls2-trust-strip__inner {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .ls2-trust-strip__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ls2-white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .ls2-trust-strip__icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .ls2-trust-strip__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--ls2-gold);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-trust-strip__inner {
+      gap: 12px 24px;
+    }
+
+    .ls2-trust-strip__item {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .ls2-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ls2-hero--compact {
+    min-height: 420px;
+  }
+
+  .ls2-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .ls2-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+  }
+
+  .ls2-hero__inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 24px;
+  }
+
+  .ls2-hero__inner--compact {
+    padding: 60px 24px 48px;
+    max-width: 720px;
+  }
+
+  .ls2-hero__content {
+    color: var(--ls2-white);
+  }
+
+  .ls2-hero__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    color: var(--ls2-white);
+  }
+
+  .ls2-stars {
+    color: var(--ls2-gold);
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+  }
+
+  .ls2-hero__title {
+    color: var(--ls2-white);
+    margin-bottom: 16px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+
+  .ls2-hero__subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .ls2-hero__scroll-arrow {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .ls2-hero__scroll-arrow:hover {
+    opacity: 1;
+  }
+
+  .ls2-hero__scroll-arrow img {
+    width: 64px;
+    height: 64px;
+    filter: brightness(0) invert(1);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-hero--compact {
+      min-height: 340px;
+    }
+
+    .ls2-hero__inner--compact {
+      padding: 40px 16px 36px;
+    }
+  }
+
+  /* ============================================
+     FORM SECTION
+     ============================================ */
+  .ls2-form-section {
+    background: var(--ls2-white);
+    padding: 0;
+  }
+
+  .ls2-form-section__inner {
+    max-width: 640px;
+    text-align: center;
+    padding-top: 48px;
+  }
+
+  .ls2-form-section__header {
+    margin-bottom: 32px;
+  }
+
+  .ls2-form-section__title {
+    margin-bottom: 8px;
+  }
+
+  .ls2-form-section__subtitle {
+    color: var(--ls2-text-secondary);
+    font-size: 1.05rem;
+  }
+
+  .ls2-form-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .ls2-form-tile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    border: 2px solid var(--ls2-border);
+    border-radius: var(--ls2-radius-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--ls2-white);
+  }
+
+  .ls2-form-tile:hover {
+    border-color: var(--ls2-action);
+    background: rgba(58, 125, 68, 0.03);
+  }
+
+  .ls2-form-tile input {
+    display: none;
+  }
+
+  .ls2-form-tile__radio {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--ls2-border);
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .ls2-form-tile input:checked ~ .ls2-form-tile__radio {
+    border-color: var(--ls2-action);
+  }
+
+  .ls2-form-tile input:checked ~ .ls2-form-tile__radio::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ls2-action);
+  }
+
+  .ls2-form-tile input:checked ~ .ls2-form-tile__label {
+    font-weight: 600;
+    color: var(--ls2-text);
+  }
+
+  .ls2-form-tile__label {
+    font-size: 0.95rem;
+    color: var(--ls2-text-secondary);
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .ls2-form-progress {
+    margin-bottom: 24px;
+  }
+
+  .ls2-form-progress__bar {
+    height: 4px;
+    background: var(--ls2-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ls2-form-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: var(--ls2-action);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .ls2-form-step--hidden {
+    display: none;
+  }
+
+  .ls2-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .ls2-form-field input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--ls2-border);
+    border-radius: var(--ls2-radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ls2-text);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .ls2-form-field input:focus {
+    border-color: var(--ls2-action);
+  }
+
+  .ls2-form-field input::placeholder {
+    color: var(--ls2-text-light);
+  }
+
+  .ls2-form-submit {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.05rem;
+  }
+
+  .ls2-form-section__or {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ls2-text-secondary);
+    padding-bottom: 24px;
+    margin-top: 16px;
+  }
+
+  .ls2-form-section__or a {
+    color: var(--ls2-action);
+  }
+
+  @media (max-width: 480px) {
+    .ls2-form-tiles {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================
+     ACCREDITATIONS
+     ============================================ */
+  .ls2-accreditations {
+    background: var(--ls2-light-grey);
+    padding: 32px 0;
+  }
+
+  .ls2-accreditations__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .ls2-accreditations__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    border-right: 1px solid var(--ls2-border);
+  }
+
+  .ls2-accreditations__item:last-child {
+    border-right: none;
+  }
+
+  .ls2-accreditations__item img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .ls2-accreditations__item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .ls2-accreditations__inner {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .ls2-accreditations__item {
+      flex: 0 0 calc(33.33% - 16px);
+      border-right: none;
+      padding: 8px 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ls2-accreditations__item {
+      flex: 0 0 calc(50% - 16px);
+    }
+  }
+
+  /* ============================================
+     SERVICES GRID
+     ============================================ */
+  .ls2-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ls2-service-card {
+    position: relative;
+    border-radius: var(--ls2-radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+
+  .ls2-service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .ls2-service-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .ls2-service-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    z-index: 1;
+  }
+
+  .ls2-service-card__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: rgba(45, 52, 128, 0.8);
+    color: var(--ls2-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 2;
+  }
+
+  .ls2-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ls2-shadow-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .ls2-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ls2-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .ls2-service-card__label {
+      font-size: 0.8rem;
+      padding: 10px 12px;
+    }
+  }
+
+  /* ============================================
+     ABOUT SECTION
+     ============================================ */
+  .ls2-about-section {
+    padding: 28px 0;
+  }
+
+  .ls2-about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ls2-about-gallery {
+    position: relative;
+    border-radius: var(--ls2-radius-lg);
+    overflow: hidden;
+  }
+
+  .ls2-about-gallery__track {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: var(--ls2-border);
+  }
+
+  .ls2-about-gallery__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .ls2-about-gallery__slide.active {
+    opacity: 1;
+  }
+
+  .ls2-about-gallery__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ls2-about-gallery__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+
+  .ls2-about-gallery__arrow:hover {
+    background: rgba(0,0,0,0.7);
+  }
+
+  .ls2-about-gallery__arrow--prev {
+    left: 12px;
+  }
+
+  .ls2-about-gallery__arrow--next {
+    right: 12px;
+  }
+
+  .ls2-about-gallery__dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .ls2-about-gallery__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 0;
+  }
+
+  .ls2-about-gallery__dot.active {
+    background: white;
+  }
+
+  .ls2-about-split__content {
+    font-size: 0.95rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.7;
+  }
+
+  .ls2-about-split__content p {
+    margin-bottom: 16px;
+  }
+
+  .ls2-about-split__phone {
+    color: var(--ls2-brand);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .ls2-about-split {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* ============================================
+     TESTIMONIALS
+     ============================================ */
+  .ls2-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .ls2-testimonial-card {
+    background: var(--ls2-white);
+    border: 1px solid var(--ls2-border);
+    border-radius: var(--ls2-radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ls2-testimonial-card__quote-mark {
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--ls2-brand);
+    font-family: Georgia, serif;
+    margin-bottom: 4px;
+  }
+
+  .ls2-testimonial-card__headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ls2-text);
+    margin-bottom: 12px;
+  }
+
+  .ls2-testimonial-card__body {
+    font-size: 0.9rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .ls2-testimonial-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--ls2-border);
+    padding-top: 16px;
+  }
+
+  .ls2-testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ls2-testimonial-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .ls2-testimonial-card__name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ls2-text);
+  }
+
+  .ls2-testimonial-card__job {
+    font-size: 0.78rem;
+    color: var(--ls2-text-light);
+  }
+
+  .ls2-testimonial-card__rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .ls2-testimonial-card__stars {
+    color: var(--ls2-gold);
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .ls2-testimonial-card__platform-logo {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ls2-testimonial-card__platform-logo--google {
+    width: 60px;
+  }
+
+  .ls2-testimonial-card__platform-logo--checkatrade {
+    width: 72px;
+  }
+
+  .ls2-testimonials-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .ls2-testimonials-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--ls2-border);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .ls2-testimonials-dot.active {
+    background: var(--ls2-brand);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-testimonials-grid {
+      grid-template-columns: 1fr;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      display: flex;
+      padding-bottom: 8px;
+    }
+
+    .ls2-testimonial-card {
+      min-width: calc(100vw - 48px);
+      scroll-snap-align: start;
+    }
+
+    .ls2-testimonials-dots {
+      display: flex;
+    }
+  }
+
+  /* ============================================
+     PLATFORM RATINGS
+     ============================================ */
+  .ls2-platforms {
+    padding: 48px 0;
+    background: var(--ls2-white);
+  }
+
+  .ls2-platforms__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .ls2-platform {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0 32px;
+    border-right: 1px solid var(--ls2-border);
+  }
+
+  .ls2-platform:last-child {
+    border-right: none;
+  }
+
+  .ls2-platform__logo-img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ls2-platform--google .ls2-platform__logo-img {
+    width: 90px;
+  }
+
+  .ls2-platform--facebook .ls2-platform__logo-img {
+    width: 120px;
+  }
+
+  .ls2-platform--checkatrade .ls2-platform__logo-img {
+    width: 110px;
+  }
+
+  .ls2-platform__stars {
+    color: var(--ls2-gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .ls2-platform__meta {
+    font-size: 0.85rem;
+    color: var(--ls2-text-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-platforms__inner {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .ls2-platform {
+      border-right: none;
+      border-bottom: 1px solid var(--ls2-border);
+      padding: 0 0 32px;
+    }
+
+    .ls2-platform:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  /* ============================================
+     WHY CHOOSE US
+     ============================================ */
+  .ls2-usp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ls2-usp-item {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    background: var(--ls2-white);
+    border-radius: var(--ls2-radius-lg);
+    border: 1px solid var(--ls2-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ls2-usp-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ls2-shadow-md);
+  }
+
+  .ls2-usp-item__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(45, 52, 128, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .ls2-usp-item:hover .ls2-usp-item__icon {
+    background: var(--ls2-brand);
+  }
+
+  .ls2-usp-item__icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--ls2-brand);
+    transition: stroke 0.3s ease;
+  }
+
+  .ls2-usp-item:hover .ls2-usp-item__icon svg {
+    stroke: var(--ls2-white);
+  }
+
+  .ls2-usp-item h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .ls2-usp-item p {
+    font-size: 0.9rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .ls2-usp-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================
+     STEPS
+     ============================================ */
+  .ls2-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .ls2-step {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: var(--ls2-radius-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ls2-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ls2-shadow-md);
+  }
+
+  .ls2-step__number {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--ls2-brand);
+    color: var(--ls2-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .ls2-step:hover .ls2-step__number {
+    transform: scale(1.1);
+  }
+
+  .ls2-step h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .ls2-step p {
+    font-size: 0.9rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 640px) {
+    .ls2-steps-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* ============================================
+     FAQ
+     ============================================ */
+  .ls2-faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .ls2-faq-item {
+    border-bottom: 1px solid var(--ls2-border);
+  }
+
+  .ls2-faq-item__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ls2-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+
+  .ls2-faq-item__question:hover {
+    color: var(--ls2-brand);
+  }
+
+  .ls2-faq-item__icon {
+    flex-shrink: 0;
+    color: var(--ls2-text-light);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ls2-faq-item.active .ls2-faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .ls2-faq-item__answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ls2-faq-item.active .ls2-faq-item__answer-wrapper {
+    grid-template-rows: 1fr;
+  }
+
+  .ls2-faq-item__answer {
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: var(--ls2-text-secondary);
+    line-height: 1.7;
+  }
+
+  .ls2-faq-item.active .ls2-faq-item__answer {
+    padding-bottom: 20px;
+  }
+
+  /* ============================================
+     FINAL CTA
+     ============================================ */
+  .ls2-final-cta {
+    background: var(--ls2-brand);
+    padding: 72px 0;
+    text-align: center;
+  }
+
+  .ls2-final-cta h2 {
+    color: var(--ls2-white);
+    margin-bottom: 12px;
+  }
+
+  .ls2-final-cta__subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto 24px;
+  }
+
+  .ls2-final-cta__phone {
+    margin-bottom: 28px;
+  }
+
+  .ls2-final-cta__phone a {
+    color: var(--ls2-white);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .ls2-final-cta__row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .ls2-final-cta__reassurance {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+  }
+
+  /* ============================================
+     USP BAR
+     ============================================ */
+  .ls2-usp-bar {
+    background: var(--ls2-white);
+    border-top: 1px solid var(--ls2-border);
+    padding: 24px 0;
+  }
+
+  .ls2-usp-bar__inner {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .ls2-usp-bar__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ls2-text-secondary);
+  }
+
+  .ls2-usp-bar__item svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--ls2-brand);
+    stroke-width: 2;
+    fill: none;
+  }
+
+  @media (max-width: 640px) {
+    .ls2-usp-bar__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      justify-items: center;
+    }
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .ls2-footer {
+    background: var(--ls2-brand);
+    color: rgba(255,255,255,0.75);
+    padding: 56px 0 0;
+    font-size: 0.9rem;
+  }
+
+  .ls2-footer__inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .ls2-footer__brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ls2-white);
+    margin-bottom: 12px;
+  }
+
+  .ls2-footer h4 {
+    color: var(--ls2-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .ls2-footer ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ls2-footer li {
+    margin-bottom: 8px;
+  }
+
+  .ls2-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .ls2-footer__bottom a {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .ls2-footer__bottom a:hover {
+    color: var(--ls2-white);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-footer__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .ls2-footer__bottom {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
+
+  /* ============================================
+     MOBILE BAR
+     ============================================ */
+  .ls2-mobile-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--ls2-white);
+    padding: 8px;
+    gap: 8px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  .ls2-mobile-bar__call,
+  .ls2-mobile-bar__quote {
+    flex: 1;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: var(--ls2-radius);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .ls2-mobile-bar__call {
+    background: var(--ls2-brand);
+    color: var(--ls2-white);
+  }
+
+  .ls2-mobile-bar__quote {
+    background: var(--ls2-action);
+    color: var(--ls2-white);
+  }
+
+  @media (max-width: 640px) {
+    .ls2-mobile-bar {
+      display: flex;
+    }
+
+    /* Add padding to footer so mobile bar doesn't cover content */
+    .ls2-footer {
+      padding-bottom: 72px;
+    }
+  }
+</style>
+
+<script>
+  // ============================================
+  // TWO-STEP FORM
+  // ============================================
+  const tiles = document.querySelectorAll('.ls2-form-tile input');
+  const step1 = document.getElementById('ls2-form-step-1');
+  const step2 = document.getElementById('ls2-form-step-2');
+  const progressFill = document.getElementById('ls2-progress-fill');
+  const hiddenService = document.getElementById('ls2-hidden-service') as HTMLInputElement;
+
+  tiles.forEach((tile) => {
+    tile.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      if (hiddenService) hiddenService.value = target.value;
+      if (progressFill) progressFill.style.width = '50%';
+
+      setTimeout(() => {
+        if (step2) step2.classList.remove('ls2-form-step--hidden');
+        if (progressFill) progressFill.style.width = '100%';
+        step2?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400);
+    });
+  });
+
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+  document.querySelectorAll('.ls2-faq-item__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.parentElement!.classList.toggle('active');
+    });
+  });
+
+  // ============================================
+  // ABOUT GALLERY
+  // ============================================
+  const gallery = document.querySelector('.ls2-about-gallery');
+  if (gallery) {
+    const slides = gallery.querySelectorAll('.ls2-about-gallery__slide');
+    const dots = gallery.querySelectorAll('.ls2-about-gallery__dot');
+    const prevBtn = gallery.querySelector('.ls2-about-gallery__arrow--prev');
+    const nextBtn = gallery.querySelector('.ls2-about-gallery__arrow--next');
+    const total = slides.length;
+    let current = 0;
+    let interval: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      current = ((index % total) + total) % total;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+      interval = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function stopAuto() {
+      clearInterval(interval);
+    }
+
+    prevBtn?.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+    nextBtn?.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    startAuto();
+  }
+
+  // ============================================
+  // TESTIMONIALS MOBILE CAROUSEL
+  // ============================================
+  function initLs2Slider() {
+    const grid = document.querySelector('.ls2-testimonials-grid');
+    const dots = document.querySelectorAll('.ls2-testimonials-dot');
+    if (!grid || !dots.length || window.innerWidth > 640) return;
+
+    let current = 0;
+    const total = dots.length;
+    let interval: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      current = index;
+      const card = grid.children[current] as HTMLElement;
+      grid.scrollTo({ left: card.offsetLeft - 16, behavior: 'smooth' });
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+      interval = setInterval(() => goTo((current + 1) % total), 4000);
+    }
+
+    function stopAuto() {
+      clearInterval(interval);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    grid.addEventListener('touchstart', stopAuto, { passive: true });
+    grid.addEventListener('touchend', () => {
+      setTimeout(() => {
+        const scrollLeft = grid.scrollLeft;
+        const cardWidth = (grid.children[0] as HTMLElement).offsetWidth;
+        current = Math.round(scrollLeft / cardWidth);
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        startAuto();
+      }, 100);
+    }, { passive: true });
+
+    startAuto();
+  }
+
+  initLs2Slider();
+
+  // ============================================
+  // PLATFORM RATINGS COUNTER ANIMATION
+  // ============================================
+  function animateLs2Counters() {
+    const counters = document.querySelectorAll('.ls2-counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.target || '0');
+        const duration = 1500;
+        const start = performance.now();
+
+        function update(now: number) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toString();
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((c) => observer.observe(c));
+  }
+
+  animateLs2Counters();
+</script>
