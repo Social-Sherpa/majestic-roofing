@@ -32,6 +32,16 @@ const { title, description } = Astro.props;
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <slot />
+  <script is:inline>
+    window.addEventListener('load', function() {
+      if (window.location.hash) {
+        var el = document.querySelector(window.location.hash);
+        if (el) {
+          setTimeout(function() { el.scrollIntoView({ behavior: 'smooth' }); }, 100);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
 
