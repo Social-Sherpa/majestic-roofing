@@ -465,6 +465,18 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     const totalSteps = 4;
     const answers: Record<string, string> = {};
 
+    // Capture UTM params and ad click IDs from URL
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'msclkid'];
+    const utmData: Record<string, string> = {};
+    const urlParams = new URLSearchParams(window.location.search);
+    utmKeys.forEach((key) => {
+      const val = urlParams.get(key);
+      if (val) utmData[key] = val;
+    });
+    // Also capture the landing page URL and referrer
+    utmData.landing_page = window.location.href;
+    if (document.referrer) utmData.referrer = document.referrer;
+
     function goToStep(n: number) {
       currentStep = n;
       steps.forEach((s) => {
@@ -635,6 +647,7 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
           phone: phoneVal,
           postcode: postcodeVal,
           source: 'Landing Page',
+          ...utmData,
         };
 
         const webhookUrl = form.dataset.webhookUrl;
