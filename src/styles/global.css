@@ -1924,7 +1924,7 @@ button[type="submit"]:disabled {
   }
 
   .hero__title {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    font-size: clamp(2.1rem, 8vw, 2.6rem);
   }
 
   .hero__subtitle {
