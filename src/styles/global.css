@@ -31,6 +31,8 @@
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
+[id] { scroll-margin-top: 100px; }
+
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 450;
