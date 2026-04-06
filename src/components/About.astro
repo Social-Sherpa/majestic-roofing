@@ -12,9 +12,8 @@ interface Props {
 }
 
 const { phone = '01225 985713' } = Astro.props;
-const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 
-const slides = [
+const gallery = [
   { src: img1, alt: 'New slate roof fitted on a British house' },
   { src: img2, alt: 'Roof repair replacing broken tiles' },
   { src: img3, alt: 'Flat roof EPDM rubber membrane installation' },
@@ -24,180 +23,74 @@ const slides = [
 ];
 ---
 
-<section class="section about-section">
+<section class="section section--off-white">
   <div class="container">
-    <div class="section__header">
-      <h2>Welcome to Majestic Services LTD</h2>
-    </div>
     <div class="about-split">
-      <div class="about-gallery">
-        <div class="about-gallery__track">
-          {slides.map((slide, i) => (
-            <div class={`about-gallery__slide ${i === 0 ? 'active' : ''}`} data-slide={i}>
-              <Image src={slide.src} alt={slide.alt} widths={[400, 600]} loading="lazy" />
+      <div class="about-split__image about-split__slider">
+        <div class="about-slider__track">
+          {gallery.map((img) => (
+            <div class="about-slider__slide">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                widths={[400, 600]}
+                loading="lazy"
+                class="about-slider__img"
+              />
             </div>
           ))}
         </div>
-        <button class="about-gallery__arrow about-gallery__arrow--prev" aria-label="Previous slide">
+        <button class="about-slider__arrow about-slider__arrow--prev" aria-label="Previous slide">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="about-gallery__arrow about-gallery__arrow--next" aria-label="Next slide">
+        <button class="about-slider__arrow about-slider__arrow--next" aria-label="Next slide">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
-        <div class="about-gallery__dots">
-          {slides.map((_, i) => (
-            <button class={`about-gallery__dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Show image ${i + 1}`} />
-          ))}
-        </div>
+        <div class="about-slider__dots"></div>
       </div>
       <div class="about-split__content">
+        <h2>Welcome to Majestic Services LTD</h2>
         <p>Majestic Services are roofing experts based in Bath, we're a fully certified, family-run business with over 20 years of experience delivering quality workmanship and a personal service.</p>
-        <p>No hidden charges. No call-out fees. Just clear, written quotes, completely FREE, so you can plan with confidence.</p>
-        <p>Call Majestic Services at <a href={phoneHref} class="about-split__phone">{phone}</a> for a free quote or a chat about your roofing needs. We're always here to offer advice and support!</p>
+        <p>We don't believe in hidden charges or call-out fees. You'll get a detailed written quote before any work starts, and every job is backed by our 15-year warranty.</p>
+        <ul class="about-split__checks">
+          <li>Fully insured and qualified team</li>
+          <li>Free pre-work survey and inspection</li>
+          <li>15-year workmanship warranty</li>
+          <li>No call-out fees, no hidden costs</li>
+          <li>24/7 emergency availability</li>
+        </ul>
       </div>
-    </div>
-    <div class="mid-cta">
-      <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
     </div>
   </div>
 </section>
 
-<style>
-  .about-section {
-    padding: 28px 0;
-  }
-
-  .about-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .about-gallery {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .about-gallery__track {
-    position: relative;
-    aspect-ratio: 4/3;
-    background: var(--mid-grey);
-  }
-
-  .about-gallery__slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  .about-gallery__slide.active {
-    opacity: 1;
-  }
-
-  .about-gallery__slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .about-gallery__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    z-index: 2;
-  }
-
-  .about-gallery__arrow:hover {
-    background: rgba(0,0,0,0.7);
-  }
-
-  .about-gallery__arrow--prev {
-    left: 12px;
-  }
-
-  .about-gallery__arrow--next {
-    right: 12px;
-  }
-
-  .about-gallery__dots {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 2;
-  }
-
-  .about-gallery__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: background 0.2s;
-    padding: 0;
-  }
-
-  .about-gallery__dot.active {
-    background: white;
-  }
-
-  .about-split__content {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .about-split__content p {
-    margin-bottom: 16px;
-  }
-
-  .about-split__phone {
-    color: var(--brand);
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    .about-split {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-  }
-</style>
-
 <script>
-  const gallery = document.querySelector('.about-gallery');
-  if (gallery) {
-    const slides = gallery.querySelectorAll('.about-gallery__slide');
-    const dots = gallery.querySelectorAll('.about-gallery__dot');
-    const prevBtn = gallery.querySelector('.about-gallery__arrow--prev');
-    const nextBtn = gallery.querySelector('.about-gallery__arrow--next');
+  const slider = document.querySelector('.about-split__slider');
+  if (slider) {
+    const slides = slider.querySelectorAll('.about-slider__slide');
+    const dotsContainer = slider.querySelector('.about-slider__dots');
+    const prevBtn = slider.querySelector('.about-slider__arrow--prev');
+    const nextBtn = slider.querySelector('.about-slider__arrow--next');
     const total = slides.length;
     let current = 0;
     let interval: ReturnType<typeof setInterval>;
 
+    slides[0]?.classList.add('active');
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `about-slider__dot${i === 0 ? ' active' : ''}`;
+      dot.setAttribute('aria-label', `Show image ${i + 1}`);
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+      dotsContainer?.appendChild(dot);
+    });
+
+    const dots = dotsContainer?.querySelectorAll('.about-slider__dot');
+
     function goTo(index: number) {
       current = ((index % total) + total) % total;
       slides.forEach((s, i) => s.classList.toggle('active', i === current));
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      dots?.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
     function startAuto() {
@@ -210,9 +103,6 @@ const slides = [
 
     prevBtn?.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
     nextBtn?.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
-    });
 
     startAuto();
   }

@@ -1,0 +1,64 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import Header from '../../components/Header.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import Hero from '../../components/Hero.astro';
+import NativeQuoteForm from '../../components/NativeQuoteForm.astro';
+import Accreditations from '../../components/Accreditations.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import About from '../../components/About.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import PlatformRatings from '../../components/PlatformRatings.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import RoofRepairs from '../../components/RoofRepairs.astro';
+import Steps from '../../components/Steps.astro';
+import NewRoofs from '../../components/NewRoofs.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import UspBar from '../../components/UspBar.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBar from '../../components/MobileBar.astro';
+
+import logo from '../../assets/brand/Majestic property services 500x200.png';
+import reviewIcons from '../../assets/logos/review-platform-icons.webp';
+import checkatradeLogo from '../../assets/logos/checkatrade-approved-roofer.png';
+import heroImage from '../../assets/images/hero-roofer-inspecting-slate-roof-north-london.webp';
+
+const phone = '01225 985713';
+---
+
+<LandingLayout
+  title="Trusted Roofers Bath | Majestic Roofing"
+  description="Family-run roofing experts with over 20 years experience serving Bath. Free quotes, no hidden fees, all work guaranteed. Call 01225 985713."
+>
+  <Header
+    logo={logo}
+    logoAlt="Majestic Roofing logo"
+    reviewBadge={reviewIcons}
+    checkatradeLogo={checkatradeLogo}
+    phone={phone}
+  />
+  <TrustStrip />
+  <Hero
+    headline="Trusted Roofing Experts Bath"
+    subtitle="Qualified roofers with over 20 years of hands-on experience. We fix it right, quote it fair, and guarantee every job."
+    heroImage={heroImage}
+    heroImageAlt="Professional roofer working on a Bath property"
+    phone={phone}
+  />
+  <NativeQuoteForm phone={phone} />
+  <Accreditations />
+  <ServicesGrid />
+  <About />
+  <Testimonials />
+  <PlatformRatings />
+  <WhyChooseUs />
+  <RoofRepairs />
+  <Steps />
+  <NewRoofs />
+  <Faq />
+  <FinalCta phone={phone} />
+  <UspBar />
+  <Footer phone={phone} />
+  <MobileBar phone={phone} />
+</LandingLayout>

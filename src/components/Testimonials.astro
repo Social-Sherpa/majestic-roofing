@@ -11,7 +11,7 @@ interface Props {
   phone?: string;
 }
 
-const { phone = '020 4634 7883' } = Astro.props;
+const { phone = '01225 985713' } = Astro.props;
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 
 const testimonials = [
@@ -62,7 +62,7 @@ const testimonials = [
   <div class="container">
     <div class="section__header">
       <h2>What Our Customers Say</h2>
-      <p>Real reviews from real homeowners across Bristol</p>
+      <p>Real reviews from real homeowners across Bath</p>
     </div>
     <div class="testimonials-grid">
       {testimonials.map((t, i) => (
@@ -72,7 +72,7 @@ const testimonials = [
           <p class="testimonial-card__body">{t.body}</p>
           <div class="testimonial-card__footer">
             <div class="testimonial-card__author">
-              <Image src={t.avatar} alt={t.name} width={80} quality={80} class="testimonial-card__avatar" />
+              <Image src={t.avatar} alt={t.name} width={40} height={40} quality={80} class="testimonial-card__avatar" />
               <div>
                 <div class="testimonial-card__name">{t.name}</div>
                 <div class="testimonial-card__job">{t.job}</div>
@@ -80,7 +80,7 @@ const testimonials = [
             </div>
             <div class="testimonial-card__rating">
               <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <Image src={t.platformLogo} alt={t.platformAlt} width={200} quality={100} class={`testimonial-card__platform-logo testimonial-card__platform-logo--${t.platformClass}`} />
+              <Image src={t.platformLogo} alt={t.platformAlt} width={80} height={22} quality={100} class={`testimonial-card__platform-logo testimonial-card__platform-logo--${t.platformClass}`} />
             </div>
           </div>
         </div>
@@ -92,17 +92,21 @@ const testimonials = [
       ))}
     </div>
     <div class="mid-cta">
-      <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
-      <span class="mid-cta__phone">Or call us now: <a href={phoneHref}>{phone}</a></span>
+      <div class="mid-cta__content">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <div class="mid-cta__phone">Or call us now: <a href={phoneHref}>{phone}</a></div>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
   function initSlider() {
+    if (!window.matchMedia('(max-width: 640px)').matches) return;
+
     const grid = document.querySelector('.testimonials-grid');
     const dots = document.querySelectorAll('.testimonials-dot');
-    if (!grid || !dots.length || window.innerWidth > 640) return;
+    if (!grid || !dots.length) return;
 
     let current = 0;
     const total = dots.length;

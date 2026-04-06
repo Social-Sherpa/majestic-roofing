@@ -663,7 +663,7 @@ button[type="submit"]:disabled {
 .platforms {
   background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 40px 0;
+  padding: 0px 0 32px 0;
 }
 
 .platforms__inner {
@@ -775,7 +775,7 @@ button[type="submit"]:disabled {
    SECTIONS
    ============================================ */
 .section {
-  padding: 80px 0;
+  padding: 70px 0;
 }
 
 .section--grey {
@@ -847,24 +847,34 @@ button[type="submit"]:disabled {
   right: 0;
   color: var(--white);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1rem;
   text-align: center;
+  padding: 8px 12px;
+  white-space: nowrap;
   background: rgba(45,52,128,0.92);
-  padding: 12px 16px;
 }
 
 /* ============================================
    MID-PAGE CTA
    ============================================ */
 .mid-cta {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mid-cta__content {
   text-align: center;
-  padding: 32px 0 0;
+  padding: 18px 40px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .mid-cta__phone {
-  display: block;
-  margin-top: 14px;
-  font-size: 0.95rem;
+  margin-top: 16px;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
@@ -879,7 +889,205 @@ button[type="submit"]:disabled {
 /* ============================================
    ABOUT
    ============================================ */
-/* About section styles now scoped in About.astro */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-split__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--mid-grey);
+  box-shadow: var(--shadow-md);
+}
+
+.about-split__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-split__slider {
+  position: relative;
+  aspect-ratio: 4/3;
+}
+
+.about-slider__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about-slider__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.6s ease;
+}
+
+.about-slider__slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.about-slider__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-slider__dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.about-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.about-slider__dot.active {
+  background: white;
+}
+
+.about-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.about-slider__arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.about-slider__arrow--prev {
+  left: 12px;
+}
+
+.about-slider__arrow--next {
+  right: 12px;
+}
+
+.about-split__content h2 {
+  margin-bottom: 20px;
+}
+
+.about-split__content p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+.about-split__checks {
+  list-style: none;
+  margin: 24px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-split__checks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.about-split__checks li::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--action);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ============================================
+   SERVICE DETAIL (New Roofs / Roof Repairs)
+   ============================================ */
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.service-detail__left h2 {
+  margin-bottom: 16px;
+}
+
+.service-detail__left p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.service-detail__image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.service-detail__right {
+  padding-top: 8px;
+}
+
+.service-detail__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-detail__checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.service-detail__checklist li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-detail__checklist li strong {
+  color: var(--text);
+}
 
 /* ============================================
    TESTIMONIALS
@@ -888,6 +1096,7 @@ button[type="submit"]:disabled {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  overflow: hidden;
 }
 
 .testimonial-card {
@@ -898,12 +1107,6 @@ button[type="submit"]:disabled {
   flex-direction: column;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
 }
 
 .testimonial-card__quote-mark {
@@ -973,8 +1176,10 @@ button[type="submit"]:disabled {
 .testimonial-card__platform-logo {
   height: 18px;
   width: auto;
+  max-width: 80px;
   object-fit: contain;
   margin-top: 2px;
+  display: block;
 }
 
 .testimonial-card__platform-logo--google {
@@ -1131,21 +1336,24 @@ button[type="submit"]:disabled {
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  text-align: center;
+  gap: 24px;
   position: relative;
 }
 
 .step {
-  padding: 24px 16px;
+  display: flex;
+  gap: 20px;
+  padding: 28px;
+  background: var(--white);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  background: var(--white);
 }
 
 .step__number {
@@ -1154,29 +1362,63 @@ button[type="submit"]:disabled {
   border-radius: 50%;
   background: var(--brand);
   color: var(--white);
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
+  transition: transform 0.3s ease;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  transition: transform 0.3s ease;
 }
 
-.step:hover .step__number {
-  transform: scale(1.1);
+.step__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.step:hover .step__icon {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.step__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--brand);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+.step:hover .step__icon svg {
+  stroke: white;
 }
 
 .step h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 6px;
 }
 
 .step p {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+.step:hover .step__number {
+  transform: scale(1.1);
 }
 
 /* ============================================
@@ -1193,7 +1435,7 @@ button[type="submit"]:disabled {
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--mid-grey);
 }
 
 .faq-item__question {
@@ -1257,9 +1499,29 @@ button[type="submit"]:disabled {
    FINAL CTA
    ============================================ */
 .final-cta {
-  background: var(--brand);
+  position: relative;
   padding: 80px 0;
   text-align: center;
+  overflow: hidden;
+}
+
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 52, 128, 0.85);
+}
+
+.final-cta__content {
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta h2 {
@@ -1268,7 +1530,7 @@ button[type="submit"]:disabled {
 }
 
 .final-cta__subtitle {
-  color: rgba(255,255,255,0.75);
+  color: var(--white);
   font-size: 1.05rem;
   margin-bottom: 28px;
   max-width: 540px;
@@ -1297,7 +1559,7 @@ button[type="submit"]:disabled {
 .final-cta__reassurance {
   margin-top: 20px;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.8);
 }
 
 /* ============================================
@@ -1520,12 +1782,6 @@ button[type="submit"]:disabled {
     grid-template-columns: 1fr;
   }
 
-  /* Steps */
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   /* Footer */
   .footer__inner {
     grid-template-columns: 1fr;
@@ -1557,6 +1813,24 @@ button[type="submit"]:disabled {
     margin-bottom: 36px;
   }
 
+  /* About */
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Service detail */
+  .service-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Steps */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   /* Final CTA */
   .final-cta {
     padding: 56px 0;
@@ -1564,6 +1838,12 @@ button[type="submit"]:disabled {
 
   .final-cta__phone {
     font-size: 1.8rem;
+  }
+
+  /* Service card labels */
+  .service-card__label {
+    font-size: 0.8rem;
+    padding: 6px 8px;
   }
 }
 
@@ -1710,12 +1990,10 @@ button[type="submit"]:disabled {
   }
 
   .service-card__label {
-    font-size: 0.75rem;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 8px 6px;
-    white-space: nowrap;
+    font-size: 0.58rem;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
   }
 
   /* Section padding */
@@ -1727,7 +2005,14 @@ button[type="submit"]:disabled {
     margin-bottom: 28px;
   }
 
-  /* About - now scoped in component */
+  /* About */
+  .about-split {
+    gap: 24px;
+  }
+
+  .about-split__checks {
+    margin: 16px 0 24px;
+  }
 
   /* Testimonials */
   .testimonial-card {
