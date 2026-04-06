@@ -547,6 +547,12 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
           setTimeout(() => {
             if (stepNum < totalSteps) {
               goToStep(stepNum + 1);
+              requestAnimationFrame(() => {
+                const target = card.getBoundingClientRect().top + window.scrollY;
+                const header = document.querySelector('.header') as HTMLElement;
+                const offset = header ? header.offsetHeight + 12 : 0;
+                window.scrollTo(0, target - offset);
+              });
             }
           }, 300);
         });
