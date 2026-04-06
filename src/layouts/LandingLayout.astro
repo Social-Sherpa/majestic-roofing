@@ -37,7 +37,12 @@ const { title, description } = Astro.props;
       if (window.location.hash) {
         var el = document.querySelector(window.location.hash);
         if (el) {
-          setTimeout(function() { el.scrollIntoView({ behavior: 'smooth' }); }, 100);
+          setTimeout(function() {
+            var header = document.querySelector('.header');
+            var offset = header ? header.offsetHeight + 16 : 0;
+            var top = el.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }, 200);
         }
       }
     });
