@@ -1,0 +1,113 @@
+---
+// Showcase page using the latest Hammerslate landing page design, isolated
+// from the rest of the Majestic site. All components and CSS live under
+// src/components/roofing/ and src/styles/roofing.css so nothing here touches
+// the main Majestic site.
+//
+// Content is Hammerslate's as-shipped — swap the business name, phone,
+// services, testimonials, accreditations, reviews etc. per CLAUDE.md before
+// using this for a real client.
+
+import RoofingLayout from '../../layouts/RoofingLayout.astro';
+import Header from '../../components/roofing/Header.astro';
+import TrustStrip from '../../components/roofing/TrustStrip.astro';
+import Hero from '../../components/roofing/Hero.astro';
+import PlatformRatings from '../../components/roofing/PlatformRatings.astro';
+import ServicesGrid from '../../components/roofing/ServicesGrid.astro';
+import About from '../../components/roofing/About.astro';
+import Testimonials from '../../components/roofing/Testimonials.astro';
+import WhyChooseUs from '../../components/roofing/WhyChooseUs.astro';
+import Steps from '../../components/roofing/Steps.astro';
+import Faq from '../../components/roofing/Faq.astro';
+import FinalCta from '../../components/roofing/FinalCta.astro';
+import Accreditations from '../../components/roofing/Accreditations.astro';
+import NewRoofs from '../../components/roofing/NewRoofs.astro';
+import RoofRepairs from '../../components/roofing/RoofRepairs.astro';
+import UspBar from '../../components/roofing/UspBar.astro';
+import Footer from '../../components/roofing/Footer.astro';
+import MobileBar from '../../components/roofing/MobileBar.astro';
+
+const location = 'Bath';
+
+const faqs = [
+  {
+    question: 'Do you charge for quotes or inspections?',
+    answer: 'No. We provide free, no-obligation quotes for all roofing work in Bath. John will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
+  },
+  {
+    question: 'How do I know if my roof needs repairing or replacing?',
+    answer: "Common signs include visible leaks or damp patches on ceilings, missing or cracked tiles, sagging areas, or moss and vegetation growth. If your roof is over 25 years old and showing these signs, a full replacement may be more cost-effective than ongoing repairs. We'll give you an honest assessment and recommend the best option for your situation.",
+  },
+  {
+    question: 'What does your 15-year warranty cover?',
+    answer: "Our warranty covers all workmanship for 15 years from completion. If anything we've installed or repaired develops a fault, we'll come back and put it right at no cost to you. Materials carry the manufacturer's own warranty on top of this.",
+  },
+  {
+    question: 'How long does a new roof take?',
+    answer: "A standard semi-detached house typically takes between 5 and 10 working days, depending on weather, the complexity of the roof, and the materials chosen. We'll give you a clear timeline before work starts.",
+  },
+  {
+    question: 'Do you handle emergency roof repairs?',
+    answer: "Yes, we handle emergency roof repairs across Bath. If you've got an urgent leak or storm damage, call us on 01225 985713 and we'll get someone to you as quickly as possible.",
+  },
+  {
+    question: 'What areas do you cover?',
+    answer: "We're based in Bath and cover Bristol, Trowbridge, Frome, Keynsham, Bradford on Avon and surrounding areas. If you're unsure whether we cover your area, give us a call and we'll let you know.",
+  },
+];
+---
+
+<RoofingLayout
+  title="Trusted Roofers Bath | Majestic Roofing"
+  description="Family-run roofing experts with over 20 years experience serving Bath. Free quotes, no hidden fees, 15-year warranty. Call 01225 985713."
+>
+  <Header />
+  <TrustStrip />
+  <Hero
+    headline="Bath's Trusted Roofing Experts"
+    subtitle="Qualified roofers with over 20 years of hands-on experience. We fix it right, quote it fair, and guarantee every job."
+    webhookUrl="https://services.leadconnectorhq.com/hooks/S7ZvkZk7rAVrb2ysJIR1/webhook-trigger/7402c2c7-8229-4c50-99f9-b08182ed13d7"
+    source="Majestic Bath Landing Page"
+    testimonial={{
+      body: "John delivered everything he promised. His team worked their nuts off stripping the roof, replacing all batons and a new breathable membrane, and then replacing all tiles. Brilliant job, would highly recommend.",
+      name: 'Rob Mason, Bath',
+      date: 'Mar 2026',
+      service: 'Full Re-Roof',
+    }}
+  />
+  <Accreditations />
+  <div id="services" class="anchor"></div>
+  <ServicesGrid location={location} />
+  <div id="about" class="anchor"></div>
+  <About location={location} />
+  <div id="reviews" class="anchor"></div>
+  <Testimonials location={location} />
+  <PlatformRatings />
+  <div id="why-us" class="anchor"></div>
+  <WhyChooseUs />
+  <div id="roof-repairs" class="anchor"></div>
+  <RoofRepairs />
+  <div id="process" class="anchor"></div>
+  <Steps />
+  <div id="new-roofs" class="anchor"></div>
+  <NewRoofs />
+  <div id="faq" class="anchor"></div>
+  <Faq items={faqs} />
+  <FinalCta />
+  <UspBar />
+  <Footer />
+  <MobileBar />
+</RoofingLayout>
+
+<style>
+  .anchor {
+    display: block;
+    height: 0;
+    scroll-margin-top: 110px;
+  }
+  @media (max-width: 640px) {
+    .anchor {
+      scroll-margin-top: 80px;
+    }
+  }
+</style>

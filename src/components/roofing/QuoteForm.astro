@@ -1,0 +1,287 @@
+---
+interface ServiceOption {
+  value: string;
+  label: string;
+}
+
+interface PropertyOption {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  title?: string;
+  step2Title?: string;
+  webhookUrl: string;
+  source?: string;
+  services?: ServiceOption[];
+  propertyTypes?: PropertyOption[];
+  successMessage?: string;
+  phone?: string;
+}
+
+const {
+  title = 'Get Your Free Roof Inspection & Quote',
+  step2Title = 'Last Step, Where Should We Send Your Quote?',
+  webhookUrl,
+  source = 'Landing Page',
+  services = [
+    { value: 'roof-repair', label: 'Roof Repair' },
+    { value: 'new-roof', label: 'New Roof / Re-Roof' },
+    { value: 'flat-roof', label: 'Flat Roof' },
+    { value: 'guttering', label: 'Guttering & Fascias' },
+    { value: 'chimney', label: 'Chimney Repair' },
+    { value: 'emergency', label: 'Emergency Repair' },
+    { value: 'other', label: 'Other' },
+  ],
+  propertyTypes = [
+    { value: 'semi-detached', label: 'Semi Detached' },
+    { value: 'detached', label: 'Detached' },
+    { value: 'terraced', label: 'Terraced' },
+    { value: 'bungalow', label: 'Bungalow' },
+    { value: 'flat', label: 'Flat' },
+    { value: 'commercial', label: 'Commercial' },
+  ],
+  successMessage = "Thanks! We'll be in touch shortly.",
+  phone = '01225 985713',
+} = Astro.props;
+
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+const workerUrl = import.meta.env.PUBLIC_FORM_WORKER_URL || 'https://lead-form-handler.chris-10f.workers.dev';
+---
+
+<div class="form-card" id="quote-form">
+  <div class="form-card__tabs">
+    <button class="form-card__tab form-card__tab--active" data-tab="1">Step 1</button>
+    <button class="form-card__tab" data-tab="2">Step 2</button>
+  </div>
+  <div class="form-card__body">
+    <form
+      data-worker-url={workerUrl}
+      data-webhook-url={webhookUrl}
+      data-source={source}
+      data-success-message={successMessage}
+      data-redirect-url="/thank-you/"
+    >
+      <!-- Step 1 -->
+      <div class="form-card__step form-card__step--active" data-step="1">
+        <div class="form-card__title">{title}</div>
+        <hr class="form-card__divider">
+
+        <label for="qf-service"><strong>What Roofing Service Do You Need? *</strong></label>
+        <select id="qf-service" name="service" required>
+          <option value="">Please Choose</option>
+          {services.map((s) => (
+            <option value={s.value}>{s.label}</option>
+          ))}
+        </select>
+
+        <label for="qf-property"><strong>What Type Of Property Is This? *</strong></label>
+        <select id="qf-property" name="property" required>
+          <option value="">Please Choose</option>
+          {propertyTypes.map((p) => (
+            <option value={p.value}>{p.label}</option>
+          ))}
+        </select>
+
+        <fieldset class="form-card__radio-group">
+          <legend><strong>How Soon Do You Need Help</strong></legend>
+          <label class="form-card__radio"><input type="radio" name="urgency" value="ASAP"> ASAP</label>
+          <label class="form-card__radio"><input type="radio" name="urgency" value="This Month" checked> This Month</label>
+          <label class="form-card__radio"><input type="radio" name="urgency" value="Next 2-3 Months"> Next 2-3 Months</label>
+        </fieldset>
+
+        <button type="button" class="btn btn--action btn--full form-card__next">Get Your FREE Roofing Quote</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-card__step" data-step="2">
+        <div class="form-card__title">{step2Title}</div>
+        <hr class="form-card__divider">
+
+        <label for="qf-name"><strong>Your Name *</strong></label>
+        <input type="text" id="qf-name" name="name" placeholder="Full name" required>
+
+        <label for="qf-email"><strong>Email *</strong></label>
+        <input type="email" id="qf-email" name="email" placeholder="Your email address" required>
+        <span class="form-card__field-error" data-error="email" hidden>Please enter a valid email address</span>
+
+        <label for="qf-phone"><strong>Phone Number *</strong></label>
+        <input type="tel" id="qf-phone" name="phone" placeholder="Best number to reach you" required pattern={String.raw`^(?:(?:\+44\s?|0)(?:7\d{3}|[123]\d{2,3})\s?\d{3}\s?\d{3,4})$`} title="Enter a valid UK phone number e.g. 07700 900000" minlength="10" maxlength="15">
+        <span class="form-card__field-error" data-error="phone" hidden>Please enter a valid UK phone number</span>
+
+        <label for="qf-postcode"><strong>Postcode *</strong></label>
+        <input type="text" id="qf-postcode" name="postcode" placeholder="e.g. N14 5QR" required pattern={String.raw`^[A-Za-z]{1,2}\d[A-Za-z\d]?\s?\d[A-Za-z]{2}$`} title="Enter a valid UK postcode e.g. N14 5QR" minlength="5" maxlength="8">
+        <span class="form-card__field-error" data-error="postcode" hidden>Please enter a valid UK postcode</span>
+
+        <button type="submit" class="btn btn--action btn--full">
+          <span class="form-card__btn-text">Get Your FREE Roofing Quote</span>
+          <span class="form-card__btn-loading" hidden>Sending...</span>
+        </button>
+      </div>
+    </form>
+
+    <p class="form-card__or">Or Call Us Now <a href={phoneHref}>{phone}</a></p>
+
+    <div class="form-card__success" hidden>
+      <div class="form-card__success-icon">&#10003;</div>
+      <p>{successMessage}</p>
+    </div>
+    <div class="form-card__error" hidden>
+      <p>Something went wrong. Please call us on <a href={phoneHref}>{phone}</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.form-card').forEach((card) => {
+    const form = card.querySelector('form') as HTMLFormElement;
+    const tabs = card.querySelectorAll('.form-card__tab');
+    const steps = card.querySelectorAll('.form-card__step');
+    const nextBtn = card.querySelector('.form-card__next') as HTMLButtonElement;
+
+    // UK phone: strip everything except digits and +, then check starts with 0 or +44 and has 10-11 digits
+    function isValidUkPhone(val: string): boolean {
+      const digits = val.replace(/[^0-9+]/g, '');
+      if (digits.startsWith('+44')) {
+        const num = digits.replace('+44', '0');
+        return /^0[1-37]\d{8,9}$/.test(num);
+      }
+      return /^0[1-37]\d{8,9}$/.test(digits);
+    }
+
+    // UK postcode
+    const ukPostcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}$/i;
+    // Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function showError(field: string) {
+      const el = card.querySelector(`[data-error="${field}"]`) as HTMLElement;
+      if (el) el.hidden = false;
+    }
+
+    function hideError(field: string) {
+      const el = card.querySelector(`[data-error="${field}"]`) as HTMLElement;
+      if (el) el.hidden = true;
+    }
+
+    function hideAllErrors() {
+      card.querySelectorAll('.form-card__field-error').forEach((el) => (el as HTMLElement).hidden = true);
+    }
+
+    // Clear errors on input
+    ['email', 'phone', 'postcode'].forEach((name) => {
+      const input = form.querySelector(`[name="${name}"]`) as HTMLInputElement;
+      if (input) input.addEventListener('input', () => hideError(name));
+    });
+
+    function goToStep(n: number) {
+      steps.forEach((s, i) => s.classList.toggle('form-card__step--active', i === n - 1));
+      tabs.forEach((t, i) => t.classList.toggle('form-card__tab--active', i === n - 1));
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const step = Number((tab as HTMLElement).dataset.tab);
+        if (step === 2) {
+          const service = form.querySelector('[name="service"]') as HTMLSelectElement;
+          const property = form.querySelector('[name="property"]') as HTMLSelectElement;
+          if (!service.value || !property.value) { service.reportValidity(); return; }
+        }
+        goToStep(step);
+      });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const service = form.querySelector('[name="service"]') as HTMLSelectElement;
+      const property = form.querySelector('[name="property"]') as HTMLSelectElement;
+      if (!service.value) { service.reportValidity(); return; }
+      if (!property.value) { property.reportValidity(); return; }
+      goToStep(2);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideAllErrors();
+
+      const emailVal = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+      const phoneVal = (form.elements.namedItem('phone') as HTMLInputElement).value.trim();
+      const postcodeVal = (form.elements.namedItem('postcode') as HTMLInputElement).value.trim();
+
+      let valid = true;
+
+      if (!emailRegex.test(emailVal)) {
+        showError('email');
+        valid = false;
+      }
+
+      if (!isValidUkPhone(phoneVal)) {
+        showError('phone');
+        valid = false;
+      }
+
+      if (!ukPostcodeRegex.test(postcodeVal)) {
+        showError('postcode');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const btnText = form.querySelector('.form-card__btn-text') as HTMLElement;
+      const btnLoading = form.querySelector('.form-card__btn-loading') as HTMLElement;
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const successEl = card.querySelector('.form-card__success') as HTMLElement;
+      const errorEl = card.querySelector('.form-card__error') as HTMLElement;
+
+      const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','device','utm_adgroup','utm_adID','gclid'];
+      const utmData: Record<string, string> = {};
+      utmKeys.forEach((k) => { utmData[k] = sessionStorage.getItem(k) || ''; });
+
+      const data = {
+        name: (form.elements.namedItem('name') as HTMLInputElement).value.trim(),
+        phone: phoneVal,
+        email: emailVal,
+        postcode: postcodeVal,
+        service: (form.elements.namedItem('service') as HTMLSelectElement).value,
+        property: (form.elements.namedItem('property') as HTMLSelectElement).value,
+        urgency: (form.querySelector('[name="urgency"]:checked') as HTMLInputElement)?.value || '',
+        webhookUrl: form.dataset.webhookUrl!,
+        source: form.dataset.source!,
+        ...utmData,
+      };
+
+      btnText.hidden = true;
+      btnLoading.hidden = false;
+      btn.disabled = true;
+      errorEl.hidden = true;
+
+      try {
+        const res = await fetch(form.dataset.workerUrl!, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          const redirectUrl = form.dataset.redirectUrl;
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+            return;
+          }
+          form.hidden = true;
+          card.querySelector('.form-card__or')!.hidden = true;
+          card.querySelector('.form-card__tabs')!.hidden = true;
+          successEl.hidden = false;
+        } else {
+          errorEl.hidden = false;
+        }
+      } catch {
+        errorEl.hidden = false;
+      } finally {
+        btnText.hidden = false;
+        btnLoading.hidden = true;
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
