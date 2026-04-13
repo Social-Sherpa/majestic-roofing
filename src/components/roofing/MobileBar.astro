@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import phoneIcon from '../../assets/roofing/icons/phone.png';
+
+interface Props {
+  phone?: string;
+}
+
+const { phone = '01225 985713' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<div class="mobile-bar">
+  <a href={phoneHref} class="mobile-bar__call">
+    <Image src={phoneIcon} alt="" class="mobile-bar__call-icon" width={96} height={96} loading="eager" />
+    <span>{phone}</span>
+  </a>
+  <a href="#quote-form" class="mobile-bar__quote">Get a Free Quote</a>
+</div>

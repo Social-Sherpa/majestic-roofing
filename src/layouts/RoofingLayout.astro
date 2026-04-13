@@ -1,0 +1,54 @@
+---
+// Isolated layout used only by /roofing/ — a Hammerslate-style showcase page
+// sitting alongside the main Majestic site. Does NOT share global.css or any
+// tracking IDs with the rest of Majestic.
+//
+// Tracking IDs below are blanked out intentionally. If you want this page
+// wired to a real GHL account, replace the TODO placeholders with the
+// correct IDs. Leaving them blank is safe — the scripts simply no-op.
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <!-- UTM capture: store Google Ads attribution params in sessionStorage on page load -->
+  <script is:inline>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var keys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','device','utm_adgroup','utm_adID','gclid'];
+      keys.forEach(function (k) {
+        var v = params.get(k);
+        if (v) sessionStorage.setItem(k, v);
+      });
+    })();
+  </script>
+</head>
+<body>
+  <slot />
+  <!--
+    TODO per-client tracking. Add when ready:
+    <script is:inline src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="YOUR_GHL_TRACKING_ID"></script>
+    <script is:inline src="https://backend.leadconnectorhq.com/appengine/loc/YOUR_LOCATION_ID/pool/YOUR_POOL_ID/number_pool.js"></script>
+    <script is:inline src="https://backend.leadconnectorhq.com/appengine/js/user_session.js"></script>
+    <script is:inline src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="YOUR_WIDGET_ID"></script>
+  -->
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/roofing.css';
+</style>

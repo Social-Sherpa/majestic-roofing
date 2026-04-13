@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import newRoofImg from '../../assets/roofing/images/client/black-slate-roof-tiles-brick-house.jpg';
+import roofRepairImg from '../../assets/roofing/images/client/roof-replacement-tiles-installation-chimney.jpg';
+import flatRoofImg from '../../assets/roofing/images/client/flat-roof-rubber-membrane-installation.jpg';
+import gutteringImg from '../../assets/roofing/images/client/black-guttering-downpipe-system.jpg';
+import chimneyImg from '../../assets/roofing/images/client/ChimneyWorkJSVRoofing-640w.webp';
+import emergencyImg from '../../assets/roofing/images/client/red-tile-roof-blue-protective-tarp.jpg';
+import vanImg from '../../assets/roofing/images/brand-images/tmppch84kot.webp';
+
+interface Props {
+  phone?: string;
+  location?: string;
+}
+
+const { phone = '01225 985713', location = 'Enfield' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+
+const services = [
+  { label: 'New Roof / Re-Roof', img: newRoofImg, alt: 'New slate tile roof fitted on a British semi-detached house' },
+  { label: 'Roof Repairs', img: roofRepairImg, alt: `Roofer replacing broken tiles on a ${location} terraced house` },
+  { label: 'Flat Roofs', img: flatRoofImg, alt: 'Completed EPDM rubber flat roof on a house extension' },
+  { label: 'Guttering & Fascias', img: gutteringImg, alt: 'New white UPVC guttering and fascia boards on a brick house' },
+  { label: 'Chimney Repairs', img: chimneyImg, alt: 'Chimney stack being repointed with fresh mortar and lead flashing' },
+  { label: 'Emergency Roof Repair', img: emergencyImg, alt: 'Emergency tarpaulin repair on a storm-damaged roof' },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Professional Roofing Services in {location}</h2>
+      <p>We handle everything from emergency leak repairs to complete new roofs. Every job includes a free survey and a fixed written quote.</p>
+    </div>
+    <div class="services-grid">
+      {services.map((s) => (
+        <div class="service-card">
+          <Image src={s.img} alt={s.alt} widths={[300, 450]} loading="lazy" />
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+    <div class="mid-cta">
+      <div class="mid-cta__content">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <div class="mid-cta__phone">Call For An Instant Quote</div>
+        <div class="mid-cta__number"><a href={phoneHref}>{phone}</a></div>
+      </div>
+      <div class="mid-cta__van">
+        <Image src={vanImg} alt="Majestic Roofing van" widths={[300, 500]} loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

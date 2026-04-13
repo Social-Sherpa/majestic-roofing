@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import googleLogo from '../../assets/roofing/logos/google-colorful-logo.png';
+import checkatradeLogo from '../../assets/roofing/logos/checkatrade-approved-roofer.png';
+import reRoofImg from '../../assets/roofing/images/client/new-roof-installation-construction-project.jpg';
+import repairImg from '../../assets/roofing/images/client/residential-roof-repair-project.jpg';
+import garageImg from '../../assets/roofing/images/client/flat-roof-rubber-membrane-installation.jpg';
+import gutterImg from '../../assets/roofing/images/client/black-guttering-downpipe-system.jpg';
+
+interface Props {
+  phone?: string;
+  location?: string;
+}
+
+const { phone = '01225 985713', location = 'Bath' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+
+const testimonials = [
+  {
+    headline: 'Delivered everything he promised',
+    body: "John delivered everything he promised. His team worked their nuts off stripping the roof, replacing all batons and a new breathable membrane, and then replacing all tiles. Brilliant job, would highly recommend.",
+    image: reRoofImg,
+    imageAlt: 'Full re-roof in progress on a Bath property',
+    firstName: 'Rob',
+    location: 'Bath',
+    job: 'Full Re-Roof',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+    avatarColor: '#1565c0',
+  },
+  {
+    headline: 'Quick to quote, got a guarantee too',
+    body: "Had a leak in the kitchen extension, John came next day to quote me, then we agreed a date for the repair works. Got a guarantee document too. Happy with the service.",
+    image: repairImg,
+    imageAlt: 'Roof repair on a residential property',
+    firstName: 'Lizzie',
+    location: 'Bath',
+    job: 'Roof Repair',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+    avatarColor: '#c62828',
+  },
+  {
+    headline: 'Great job rebuilding our garage roof',
+    body: "Max and the team did a great job with rebuilding our garage roof, quick and efficient service for a very reasonable price. Really happy. Definitely recommend.",
+    image: garageImg,
+    imageAlt: 'Flat rubber membrane roof fitted on a garage',
+    firstName: 'Jordan',
+    location: 'Bath',
+    job: 'Garage Roof',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+    avatarColor: '#2e7d32',
+  },
+  {
+    headline: 'Roof and gutters look great',
+    body: "Excellent experience with Majestic Services. They replaced our roof and our gutters. Their price was competitive, communication was good, the roof and new gutters look great. They also cleared up well.",
+    image: gutterImg,
+    imageAlt: 'New black guttering and downpipe system on a British house',
+    firstName: 'Christine',
+    location: 'Bath',
+    job: 'Roof & Gutters',
+    platformLogo: googleLogo,
+    platformAlt: 'Google Reviews',
+    platformClass: 'google',
+    avatarColor: '#6a1b9a',
+  },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Five Star Reviews From Our Customers</h2>
+      <p>Real reviews from real homeowners across {location}</p>
+    </div>
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <div class="testimonial-card">
+          <Image src={t.image} alt={t.imageAlt} widths={[480, 720]} quality={80} class="testimonial-card__image" loading="lazy" />
+          <div class="testimonial-card__content">
+            <div class="testimonial-card__headline">"{t.headline}"</div>
+            <p class="testimonial-card__body">{t.body}</p>
+            <div class="testimonial-card__footer">
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__avatar testimonial-card__avatar--initials" style={`background: ${t.avatarColor};`} aria-hidden="true">{t.firstName.charAt(0)}</span>
+                <div>
+                  <div class="testimonial-card__name">{t.firstName} ({t.location})</div>
+                  <div class="testimonial-card__job">{t.job}</div>
+                  <div class="testimonial-card__rating-row">
+                    <span class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="testimonial-card__verified">Verified</span>
+                  </div>
+                </div>
+              </div>
+              <Image src={t.platformLogo} alt={t.platformAlt} width={200} quality={100} class={`testimonial-card__platform-logo testimonial-card__platform-logo--${t.platformClass}`} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="mid-cta">
+      <div class="mid-cta__content">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <div class="mid-cta__phone">Call For An Instant Quote</div>
+        <div class="mid-cta__number"><a href={phoneHref}>{phone}</a></div>
+      </div>
+    </div>
+  </div>
+</section>
