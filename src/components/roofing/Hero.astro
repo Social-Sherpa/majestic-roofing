@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import heroImg from '../../assets/roofing/images/hero-roofer-inspecting-slate-roof-north-london.webp';
-import heroMobileImg from '../../assets/roofing/images/brand-images/brand-van-2.jpeg';
+import heroImg from '../../assets/roofing/images/bath/hero-slate-reroof-bath.webp';
+import heroMobileImg from '../../assets/roofing/images/bath/hero-mobile-clay-tile-bath.webp';
 import googleGLogo from '../../assets/roofing/logos/google-g-logo-colorful.jpg';
 import avatar1 from '../../assets/roofing/images/thispersondoesnotexist.jpg';
 import QuoteForm from './QuoteForm.astro';
@@ -31,7 +31,7 @@ const {
   testimonial = {
     body: "John delivered everything he promised. His team worked their nuts off stripping the roof, replacing all batons and a new breathable membrane, and then replacing all tiles. Brilliant job, would highly recommend.",
     name: 'Rob Mason, Bath',
-    date: 'Mar 2026',
+    date: 'Apr 2025',
     service: 'Full Re-Roof',
   },
 } = Astro.props;
@@ -42,7 +42,7 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 <section class="hero">
   <Image
     src={heroImg}
-    alt="Professional roofer inspecting slate tiles on a Bath terraced house"
+    alt="Full slate re-roof in progress on a Bath property by Majestic Roofing"
     class="hero__bg"
     widths={[600, 900, 1200]}
     loading="eager"
@@ -50,7 +50,7 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
   <div class="hero__mobile-image">
     <Image
       src={heroMobileImg}
-      alt="Majestic Roofing branded van on location in Bath"
+      alt="Close-up of a completed clay tile roof by Majestic Roofing in Bath"
       class="hero__mobile-img"
       widths={[600, 900]}
       loading="eager"

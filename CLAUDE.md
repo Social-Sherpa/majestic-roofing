@@ -49,6 +49,17 @@
 - Phone number appears at least 5 times across the page.
 - Clean, professional, generous whitespace. Looks like a premium trades business, not a template.
 
+### Headline and subheadline wrapping
+
+All headlines (`h1`, `h2`, `h3`) and subheadlines/lead paragraphs (`.hero__subtitle`, `.section__header p`, `.final-cta__subtitle`, `.service-detail__left p`, `.testimonial-card__headline`) use `text-wrap: balance`.
+
+Behaviour:
+- If the text fits on one line in the available container width, it stays on one line.
+- If it must wrap, lines are balanced so no single word is orphaned on its own line.
+- Use two or three lines only when space genuinely requires it.
+
+This is applied globally in `src/styles/global.css` and `src/styles/roofing.css`. When adding new heading/lead-paragraph classes, include them in the `text-wrap: balance` rule so the behaviour stays consistent.
+
 ### Typography
 
 - Headings: DM Serif Display (serif)

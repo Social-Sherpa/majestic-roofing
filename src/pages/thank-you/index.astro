@@ -1,27 +1,17 @@
 ---
-import LandingLayout from '../../layouts/LandingLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-
-import logo from '../../assets/brand/Majestic property services 500x200.png';
-import reviewIcons from '../../assets/logos/review-platform-icons.webp';
-import checkatradeLogo from '../../assets/logos/checkatrade-approved-roofer.png';
+import RoofingLayout from '../../layouts/RoofingLayout.astro';
+import Header from '../../components/roofing/Header.astro';
+import Footer from '../../components/roofing/Footer.astro';
 
 const phone = '01225 985713';
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 ---
 
-<LandingLayout
+<RoofingLayout
   title="Thank You | Majestic Roofing"
   description="Thank you for your enquiry. We'll be in touch shortly."
 >
-  <Header
-    logo={logo}
-    logoAlt="Majestic Roofing logo"
-    reviewBadge={reviewIcons}
-    checkatradeLogo={checkatradeLogo}
-    phone={phone}
-  />
+  <Header phone={phone} />
   <section class="thank-you">
     <div class="container">
       <div class="thank-you__icon">&#10003;</div>
@@ -31,4 +21,4 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     </div>
   </section>
   <Footer phone={phone} />
-</LandingLayout>
+</RoofingLayout>

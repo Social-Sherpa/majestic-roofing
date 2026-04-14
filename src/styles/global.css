@@ -59,6 +59,17 @@ h1, h2, h3 {
   font-weight: 700;
   line-height: 1.15;
   color: var(--text);
+  text-wrap: balance;
+}
+
+/* Subheadlines / lead paragraphs: never orphan a single word on its own line.
+   Browser lays out on 1 line when it fits, otherwise balances across 2–3. */
+.hero__subtitle,
+.section__header p,
+.final-cta__subtitle,
+.service-detail__left p,
+.testimonial-card__headline {
+  text-wrap: balance;
 }
 
 h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }

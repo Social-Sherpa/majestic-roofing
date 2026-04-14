@@ -2,10 +2,10 @@
 import { Image } from 'astro:assets';
 import googleLogo from '../../assets/roofing/logos/google-colorful-logo.png';
 import checkatradeLogo from '../../assets/roofing/logos/checkatrade-approved-roofer.png';
-import reRoofImg from '../../assets/roofing/images/client/new-roof-installation-construction-project.jpg';
-import repairImg from '../../assets/roofing/images/client/residential-roof-repair-project.jpg';
-import garageImg from '../../assets/roofing/images/client/flat-roof-rubber-membrane-installation.jpg';
-import gutterImg from '../../assets/roofing/images/client/black-guttering-downpipe-system.jpg';
+import reRoofImg from '../../assets/roofing/images/bath/new-roof-brown-tile-bath.webp';
+import repairImg from '../../assets/roofing/images/bath/roof-repair-ridge-tiles-bath.webp';
+import garageImg from '../../assets/roofing/images/bath/flat-roof-grp-bath.webp';
+import gutterImg from '../../assets/roofing/images/bath/guttering-fascias-bath.webp';
 
 interface Props {
   phone?: string;
@@ -20,7 +20,7 @@ const testimonials = [
     headline: 'Delivered everything he promised',
     body: "John delivered everything he promised. His team worked their nuts off stripping the roof, replacing all batons and a new breathable membrane, and then replacing all tiles. Brilliant job, would highly recommend.",
     image: reRoofImg,
-    imageAlt: 'Full re-roof in progress on a Bath property',
+    imageAlt: 'Full re-roof with new brown tiles on a Bath property',
     firstName: 'Rob',
     location: 'Bath',
     job: 'Full Re-Roof',
@@ -33,7 +33,7 @@ const testimonials = [
     headline: 'Quick to quote, got a guarantee too',
     body: "Had a leak in the kitchen extension, John came next day to quote me, then we agreed a date for the repair works. Got a guarantee document too. Happy with the service.",
     image: repairImg,
-    imageAlt: 'Roof repair on a residential property',
+    imageAlt: 'Ridge tile roof repair on a Bath home',
     firstName: 'Lizzie',
     location: 'Bath',
     job: 'Roof Repair',
@@ -46,7 +46,7 @@ const testimonials = [
     headline: 'Great job rebuilding our garage roof',
     body: "Max and the team did a great job with rebuilding our garage roof, quick and efficient service for a very reasonable price. Really happy. Definitely recommend.",
     image: garageImg,
-    imageAlt: 'Flat rubber membrane roof fitted on a garage',
+    imageAlt: 'New GRP flat roof fitted on a Bath garage extension',
     firstName: 'Jordan',
     location: 'Bath',
     job: 'Garage Roof',
@@ -59,7 +59,7 @@ const testimonials = [
     headline: 'Roof and gutters look great',
     body: "Excellent experience with Majestic Services. They replaced our roof and our gutters. Their price was competitive, communication was good, the roof and new gutters look great. They also cleared up well.",
     image: gutterImg,
-    imageAlt: 'New black guttering and downpipe system on a British house',
+    imageAlt: 'New guttering and fascias fitted on a Bath house',
     firstName: 'Christine',
     location: 'Bath',
     job: 'Roof & Gutters',
@@ -88,7 +88,7 @@ const testimonials = [
               <div class="testimonial-card__author">
                 <span class="testimonial-card__avatar testimonial-card__avatar--initials" style={`background: ${t.avatarColor};`} aria-hidden="true">{t.firstName.charAt(0)}</span>
                 <div>
-                  <div class="testimonial-card__name">{t.firstName} ({t.location})</div>
+                  <div class="testimonial-card__name">{t.firstName}</div>
                   <div class="testimonial-card__job">{t.job}</div>
                   <div class="testimonial-card__rating-row">
                     <span class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>

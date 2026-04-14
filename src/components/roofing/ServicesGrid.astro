@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import newRoofImg from '../../assets/roofing/images/client/black-slate-roof-tiles-brick-house.jpg';
-import roofRepairImg from '../../assets/roofing/images/client/roof-replacement-tiles-installation-chimney.jpg';
-import flatRoofImg from '../../assets/roofing/images/client/flat-roof-rubber-membrane-installation.jpg';
-import gutteringImg from '../../assets/roofing/images/client/black-guttering-downpipe-system.jpg';
-import chimneyImg from '../../assets/roofing/images/client/ChimneyWorkJSVRoofing-640w.webp';
-import emergencyImg from '../../assets/roofing/images/client/red-tile-roof-blue-protective-tarp.jpg';
+import newRoofImg from '../../assets/roofing/images/bath/new-roof-grey-tile-bath.webp';
+import roofRepairImg from '../../assets/roofing/images/bath/roof-repair-ridge-tiles-bath.webp';
+import flatRoofImg from '../../assets/roofing/images/bath/flat-roof-grp-bath.webp';
+import gutteringImg from '../../assets/roofing/images/bath/guttering-fascias-bath.webp';
+import chimneyImg from '../../assets/roofing/images/bath/chimney-leadwork-bath.webp';
+import emergencyImg from '../../assets/roofing/images/bath/emergency-roof-repair-bath.webp';
 import vanImg from '../../assets/roofing/images/brand-images/tmppch84kot.webp';
 
 interface Props {
@@ -17,12 +17,12 @@ const { phone = '01225 985713', location = 'Enfield' } = Astro.props;
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 
 const services = [
-  { label: 'New Roof / Re-Roof', img: newRoofImg, alt: 'New slate tile roof fitted on a British semi-detached house' },
-  { label: 'Roof Repairs', img: roofRepairImg, alt: `Roofer replacing broken tiles on a ${location} terraced house` },
-  { label: 'Flat Roofs', img: flatRoofImg, alt: 'Completed EPDM rubber flat roof on a house extension' },
-  { label: 'Guttering & Fascias', img: gutteringImg, alt: 'New white UPVC guttering and fascia boards on a brick house' },
-  { label: 'Chimney Repairs', img: chimneyImg, alt: 'Chimney stack being repointed with fresh mortar and lead flashing' },
-  { label: 'Emergency Roof Repair', img: emergencyImg, alt: 'Emergency tarpaulin repair on a storm-damaged roof' },
+  { label: 'New Roof / Re-Roof', img: newRoofImg, alt: `New grey tile roof fitted by Majestic Roofing in ${location}` },
+  { label: 'Roof Repairs', img: roofRepairImg, alt: `Ridge tile repair on a ${location} property` },
+  { label: 'Flat Roofs', img: flatRoofImg, alt: `New GRP flat roof installation on a ${location} home` },
+  { label: 'Guttering & Fascias', img: gutteringImg, alt: `New black guttering and fascias fitted on a ${location} house` },
+  { label: 'Chimney Repairs', img: chimneyImg, alt: `Chimney leadwork and flashing repair in ${location}` },
+  { label: 'Emergency Roof Repair', img: emergencyImg, alt: `Emergency slate roof repair by Majestic Roofing in ${location}` },
 ];
 ---
 

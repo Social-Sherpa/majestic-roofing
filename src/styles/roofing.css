@@ -57,6 +57,17 @@ h1, h2, h3 {
   font-weight: 700;
   line-height: 1.15;
   color: var(--text);
+  text-wrap: balance;
+}
+
+/* Subheadlines / lead paragraphs: never orphan a single word on its own line.
+   Browser lays out on 1 line when it fits, otherwise balances across 2–3. */
+.hero__subtitle,
+.section__header p,
+.final-cta__subtitle,
+.service-detail__left p,
+.testimonial-card__headline {
+  text-wrap: balance;
 }
 
 h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
@@ -87,6 +98,10 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
   display: flex;
   align-items: center;
   gap: 32px;
+}
+
+@media (min-width: 961px) {
+  .header__right { align-items: flex-end; }
 }
 
 .header__logo {
@@ -124,11 +139,16 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 
 .header__badge--checkatrade {
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
+  line-height: 1.2;
+}
+.header__badge--checkatrade .header__badge-text {
+  margin-top: 2px;
 }
 
+
 .header__badge--checkatrade img {
-  height: 24px;
+  height: 30px;
   width: auto;
 }
 
@@ -169,12 +189,14 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 
 .header__phone > div {
   text-align: center;
+  line-height: 1.2;
 }
 
 .header__phone-number a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: 30px;
 }
 
 .header__phone-icon {
@@ -187,6 +209,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 .header__phone-label {
   font-size: 0.8rem;
   color: var(--body);
+  margin-top: 2px;
 }
 
 .header__phone-number {
@@ -194,6 +217,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
   font-weight: 700;
   color: var(--heading);
   letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .header__phone-number a {
@@ -205,7 +229,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
    TRUST STRIP
    ============================================ */
 .trust-strip {
-  background: #2a3348;
+  background: #0c1a8c;
   padding: 12px 0;
 }
 
@@ -242,7 +266,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
    HERO
    ============================================ */
 .hero {
-  background: linear-gradient(135deg, var(--brand) 0%, #111420 100%);
+  background: #1a1a1a;
   position: relative;
   overflow: hidden;
 }
@@ -1929,6 +1953,10 @@ button[type="submit"]:disabled {
 
   .header__badge--checkatrade img {
     height: 18px;
+  }
+  .header__badge--checkatrade .header__badge-score {
+    white-space: nowrap;
+    font-size: 0.72rem;
   }
 
   /* Testimonials stack vertically on mobile */

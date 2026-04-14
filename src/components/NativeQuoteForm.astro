@@ -1,10 +1,31 @@
 ---
+import iconReplace from '../assets/roofing/icons/new-roof.svg';
+import iconRepair from '../assets/roofing/icons/roof-repair.svg';
+import iconFlatRoof from '../assets/roofing/icons/flat-roof.svg';
+import iconOther from '../assets/roofing/icons/other.svg';
+import iconDetached from '../assets/roofing/icons/detached.svg';
+import iconSemiDetached from '../assets/roofing/icons/semi-detached.svg';
+import iconTerraced from '../assets/roofing/icons/terraced.svg';
+import iconBungalow from '../assets/roofing/icons/bungalow.svg';
+import iconApartment from '../assets/roofing/icons/apartment-flats.svg';
+import iconCommercial from '../assets/roofing/icons/commercial-premises.svg';
+import iconAsap from '../assets/roofing/icons/asap.svg';
+import iconThisMonth from '../assets/roofing/icons/this-month.svg';
+import iconNextMonth from '../assets/roofing/icons/next-month.svg';
+
 interface Props {
   phone?: string;
   webhookUrl?: string;
+  location?: string;
+  yearsServing?: number;
 }
 
-const { phone = '01225 985713', webhookUrl = '' } = Astro.props;
+const {
+  phone = '01225 985713',
+  webhookUrl = '',
+  location = 'Bath',
+  yearsServing = 20,
+} = Astro.props;
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 ---
 
@@ -16,22 +37,22 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
       <!-- Step 1: Service -->
       <div class="nqf__step nqf__step--active" data-step="1">
         <p class="nqf__question nqf__question--light">What type of roofing service do you need?</p>
-        <div class="nqf__options">
-          <button type="button" class="nqf__option" data-value="Completely Replace Roof">
-            <span class="nqf__radio"></span>
-            Completely Replace Roof
+        <div class="nqf__options nqf__options--icons">
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Completely Replace Roof">
+            <img src={iconReplace.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Completely Replace Roof</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Repair Existing Roof">
-            <span class="nqf__radio"></span>
-            Repair Existing Roof
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Repair Existing Roof">
+            <img src={iconRepair.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Repair Existing Roof</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Flat Roofing">
-            <span class="nqf__radio"></span>
-            Flat Roofing
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Flat Roofing">
+            <img src={iconFlatRoof.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Flat Roofing</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Other">
-            <span class="nqf__radio"></span>
-            Other
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Other">
+            <img src={iconOther.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Other</span>
           </button>
         </div>
       </div>
@@ -39,30 +60,30 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
       <!-- Step 2: Property -->
       <div class="nqf__step" data-step="2">
         <h3 class="nqf__question">What type of property do you have?</h3>
-        <div class="nqf__options">
-          <button type="button" class="nqf__option" data-value="Detached">
-            <span class="nqf__radio"></span>
-            Detached
+        <div class="nqf__options nqf__options--icons">
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Detached">
+            <img src={iconDetached.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Detached</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Semi-Detached">
-            <span class="nqf__radio"></span>
-            Semi-Detached
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Semi-Detached">
+            <img src={iconSemiDetached.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Semi-Detached</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Terraced">
-            <span class="nqf__radio"></span>
-            Terraced
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Terraced">
+            <img src={iconTerraced.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Terraced</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Bungalow">
-            <span class="nqf__radio"></span>
-            Bungalow
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Bungalow">
+            <img src={iconBungalow.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Bungalow</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Flat / Apartment">
-            <span class="nqf__radio"></span>
-            Flat / Apartment
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Flat / Apartment">
+            <img src={iconApartment.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Flat / Apartment</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Commercial">
-            <span class="nqf__radio"></span>
-            Commercial
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Commercial">
+            <img src={iconCommercial.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Commercial</span>
           </button>
         </div>
       </div>
@@ -70,18 +91,18 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
       <!-- Step 3: Urgency -->
       <div class="nqf__step" data-step="3">
         <h3 class="nqf__question">How soon do you need help?</h3>
-        <div class="nqf__options nqf__options--stack">
-          <button type="button" class="nqf__option" data-value="ASAP">
-            <span class="nqf__radio"></span>
-            ASAP
+        <div class="nqf__options nqf__options--icons nqf__options--three">
+          <button type="button" class="nqf__option nqf__option--icon" data-value="ASAP">
+            <img src={iconAsap.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">ASAP</span>
           </button>
-          <button type="button" class="nqf__option" data-value="This Month">
-            <span class="nqf__radio"></span>
-            This Month
+          <button type="button" class="nqf__option nqf__option--icon" data-value="This Month">
+            <img src={iconThisMonth.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">This Month</span>
           </button>
-          <button type="button" class="nqf__option" data-value="Next 2-3 Months">
-            <span class="nqf__radio"></span>
-            Next 2-3 Months
+          <button type="button" class="nqf__option nqf__option--icon" data-value="Next 2-3 Months">
+            <img src={iconNextMonth.src} alt="" class="nqf__option-icon" width="48" height="48" />
+            <span class="nqf__option-label">Next 2-3 Months</span>
           </button>
         </div>
       </div>
@@ -138,6 +159,32 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     </div>
   </div>
 </section>
+
+<div class="nqf-trust-bar" aria-hidden="true">
+  <div class="nqf-trust-bar__inner">
+    <span class="nqf-trust-item">
+      <svg class="nqf-trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <polyline points="12 7 12 12 15 14"/>
+      </svg>
+      The latest request submitted <strong id="nqf-trust-time">7 minutes ago</strong>
+    </span>
+    <span class="nqf-trust-item">
+      <svg class="nqf-trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 21s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Serving <strong>{location}</strong> for <strong>{yearsServing}+ years</strong>
+    </span>
+    <span class="nqf-trust-item">
+      <svg class="nqf-trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="4" y="11" width="16" height="10" rx="2"/>
+        <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+      </svg>
+      <strong>SSL</strong> Secure website
+    </span>
+  </div>
+</div>
 
 <style>
   .nqf {
@@ -204,6 +251,10 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     margin-right: auto;
   }
 
+  .nqf__options--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .nqf__option {
     display: flex;
     align-items: center;
@@ -229,6 +280,45 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     border-color: #2a9d5c;
     background: rgba(42,157,92,0.06);
     box-shadow: 0 0 0 1px #2a9d5c;
+  }
+
+  /* Icon option variant — icon stacked above centred label. */
+  .nqf__option--icon {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 24px 16px;
+    min-height: 132px;
+  }
+
+  .nqf__option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .nqf__option-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  @media (max-width: 640px) {
+    .nqf__option--icon {
+      min-height: 120px;
+      padding: 20px 12px;
+    }
+    .nqf__option-icon {
+      width: 38px;
+      height: 38px;
+    }
+    .nqf__option-label {
+      font-size: 0.88rem;
+    }
   }
 
   .nqf__radio {
@@ -437,12 +527,89 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
     }
 
     .nqf__options {
+      grid-template-columns: 1fr 1fr;
+    }
+    .nqf__options--stack {
       grid-template-columns: 1fr;
+    }
+    .nqf__options--three {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .nqf__option {
       padding: 16px 18px;
       font-size: 0.9rem;
+    }
+  }
+
+  /* Focus-mode trust bar — replaces the main site footer while the user
+     is working through the multi-step quote form. */
+  .nqf-trust-bar {
+    display: none;
+  }
+
+  :global(body.form-focus) .nqf-trust-bar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+    padding: 14px 24px;
+    z-index: 50;
+  }
+
+  .nqf-trust-bar__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .nqf-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .nqf-trust-item strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .nqf-trust-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--brand);
+  }
+
+  @media (max-width: 640px) {
+    :global(body.form-focus) .nqf-trust-bar {
+      /* Sit just above the mobile-bar CTA strip so both stay visible. */
+      bottom: 72px;
+      padding: 10px 14px;
+    }
+    .nqf-trust-bar__inner {
+      gap: 6px 16px;
+      font-size: 0.72rem;
+      justify-content: center;
+    }
+    .nqf-trust-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .nqf-trust-item {
+      white-space: normal;
     }
   }
 </style>
@@ -495,8 +662,8 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
       document.body.querySelectorAll(':scope > *').forEach((el) => {
         if (el === formEl) return;
         if (el.classList.contains('header')) return;
-        if (el.classList.contains('footer')) return;
         if (el.classList.contains('mobile-bar')) return;
+        if (el.classList.contains('nqf-trust-bar')) return;
         (el as HTMLElement).style.display = 'none';
         hiddenEls.push(el as HTMLElement);
       });
