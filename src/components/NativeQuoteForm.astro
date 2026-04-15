@@ -595,9 +595,10 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 
   @media (max-width: 640px) {
     :global(body.form-focus) .nqf-trust-bar {
-      /* Sit just above the mobile-bar CTA strip so both stay visible. */
-      bottom: 72px;
-      padding: 10px 14px;
+      /* Mobile: sit inline below the form so the whole form is scrollable,
+         instead of fixed (which blocks the last fields). */
+      position: static;
+      padding: 16px 14px 20px;
     }
     .nqf-trust-bar__inner {
       gap: 6px 16px;
