@@ -1,6 +1,6 @@
 ---
-// Roofing page variant: compact hero + native multi-step quote form pulled
-// from /bath/. Everything else identical to /roofing/.
+// Yeovil location variant of /roofing-v2/ — compact hero + native multi-step
+// quote form. Identical structure, Yeovil copy and FAQ areas.
 
 import RoofingLayout from '../../layouts/RoofingLayout.astro';
 import Header from '../../components/roofing/Header.astro';
@@ -24,14 +24,14 @@ import MobileBar from '../../components/roofing/MobileBar.astro';
 import { Image } from 'astro:assets';
 import heroImage from '../../assets/roofing/images/bath/hero-slate-reroof-bath.webp';
 
-const location = 'Bath';
+const location = 'Yeovil';
 const phone = '01225 985713';
 const webhookUrl = 'https://services.leadconnectorhq.com/hooks/S7ZvkZk7rAVrb2ysJIR1/webhook-trigger/7402c2c7-8229-4c50-99f9-b08182ed13d7';
 
 const faqs = [
   {
     question: 'Do you charge for quotes or inspections?',
-    answer: 'No. We provide free, no-obligation quotes for all roofing work in Bath. John will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
+    answer: 'No. We provide free, no-obligation quotes for all roofing work in Yeovil. John will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
   },
   {
     question: 'How do I know if my roof needs repairing or replacing?',
@@ -47,25 +47,25 @@ const faqs = [
   },
   {
     question: 'Do you handle emergency roof repairs?',
-    answer: "Yes, we handle emergency roof repairs across Bath. If you've got an urgent leak or storm damage, call us on 01225 985713 and we'll get someone to you as quickly as possible.",
+    answer: "Yes, we handle emergency roof repairs across Yeovil. If you've got an urgent leak or storm damage, call us on 01225 985713 and we'll get someone to you as quickly as possible.",
   },
   {
     question: 'What areas do you cover?',
-    answer: "We cover Bath and the wider Somerset area, including Midsomer Norton, Radstock, Frome, Trowbridge, Keynsham, Wells, Shepton Mallet, Glastonbury and surrounding villages. If you're not sure whether we cover your area, give us a call and we'll let you know.",
+    answer: "We cover Yeovil and the wider Somerset area, including Sherborne, Crewkerne, Ilminster, Chard, Martock, Somerton, Langport, Castle Cary, Wincanton and surrounding villages. If you're not sure whether we cover your area, give us a call and we'll let you know.",
   },
 ];
 ---
 
 <RoofingLayout
-  title="Trusted Roofers Bath | Majestic Roofing"
-  description="Family-run roofing experts with over 20 years experience serving Bath. Free quotes, no hidden fees, 15-year warranty. Call 01225 985713."
+  title="Trusted Roofers Yeovil | Majestic Roofing"
+  description="Family-run roofing experts with over 20 years experience serving Yeovil. Free quotes, no hidden fees, 15-year warranty. Call 01225 985713."
 >
   <Header />
   <TrustStrip />
   <section class="hero hero--compact">
     <Image
       src={heroImage}
-      alt="Professional roofer working on a Bath property"
+      alt="Professional roofer working on a Yeovil property"
       class="hero__bg"
       widths={[600, 900, 1200]}
       loading="eager"
@@ -76,7 +76,7 @@ const faqs = [
           <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span>Rated 5/5 by customers</span>
         </div>
-        <h1 class="hero__title">Expert Roofers Serving Bath &amp; Somerset</h1>
+        <h1 class="hero__title">Expert Roofers Serving Yeovil &amp; Somerset</h1>
         <p class="hero__subtitle">Roofers who care about your home as much as you do.</p>
       </div>
     </div>
