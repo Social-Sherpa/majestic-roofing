@@ -1,0 +1,230 @@
+---
+// Weston-super-Mare location variant of /roofing-v2/ — compact hero + native
+// multi-step quote form. Identical structure, Weston-super-Mare copy and FAQ
+// areas.
+
+import RoofingLayout from '../../layouts/RoofingLayout.astro';
+import Header from '../../components/roofing/Header.astro';
+import TrustStrip from '../../components/roofing/TrustStrip.astro';
+import NativeQuoteForm from '../../components/NativeQuoteForm.astro';
+import PlatformRatings from '../../components/roofing/PlatformRatings.astro';
+import ServicesGrid from '../../components/roofing/ServicesGrid.astro';
+import About from '../../components/roofing/About.astro';
+import Testimonials from '../../components/roofing/Testimonials.astro';
+import WhyChooseUs from '../../components/roofing/WhyChooseUs.astro';
+import Steps from '../../components/roofing/Steps.astro';
+import Faq from '../../components/roofing/Faq.astro';
+import FinalCta from '../../components/roofing/FinalCta.astro';
+import Accreditations from '../../components/roofing/Accreditations.astro';
+import NewRoofs from '../../components/roofing/NewRoofs.astro';
+import RoofRepairs from '../../components/roofing/RoofRepairs.astro';
+import UspBar from '../../components/roofing/UspBar.astro';
+import Footer from '../../components/roofing/Footer.astro';
+import MobileBar from '../../components/roofing/MobileBar.astro';
+
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/roofing/images/bath/hero-slate-reroof-bath.webp';
+
+const location = 'Weston-super-Mare';
+const phone = '01225 985713';
+const webhookUrl = 'https://services.leadconnectorhq.com/hooks/S7ZvkZk7rAVrb2ysJIR1/webhook-trigger/7402c2c7-8229-4c50-99f9-b08182ed13d7';
+
+const faqs = [
+  {
+    question: 'Do you charge for quotes or inspections?',
+    answer: 'No. We provide free, no-obligation quotes for all roofing work in Weston-super-Mare. John will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
+  },
+  {
+    question: 'How do I know if my roof needs repairing or replacing?',
+    answer: "Common signs include visible leaks or damp patches on ceilings, missing or cracked tiles, sagging areas, or moss and vegetation growth. If your roof is over 25 years old and showing these signs, a full replacement may be more cost-effective than ongoing repairs. We'll give you an honest assessment and recommend the best option for your situation.",
+  },
+  {
+    question: 'What does your 15-year warranty cover?',
+    answer: "Our warranty covers all workmanship for 15 years from completion. If anything we've installed or repaired develops a fault, we'll come back and put it right at no cost to you. Materials carry the manufacturer's own warranty on top of this.",
+  },
+  {
+    question: 'How long does a new roof take?',
+    answer: "A standard semi-detached house typically takes between 5 and 10 working days, depending on weather, the complexity of the roof, and the materials chosen. We'll give you a clear timeline before work starts.",
+  },
+  {
+    question: 'Do you handle emergency roof repairs?',
+    answer: "Yes, we handle emergency roof repairs across Weston-super-Mare. If you've got an urgent leak or storm damage, call us on 01225 985713 and we'll get someone to you as quickly as possible.",
+  },
+  {
+    question: 'What areas do you cover?',
+    answer: "We cover Weston-super-Mare and the wider Somerset area, including Worle, Clevedon, Portishead, Nailsea, Burnham-on-Sea, Cheddar, Axbridge, Banwell, Yatton and surrounding villages. If you're not sure whether we cover your area, give us a call and we'll let you know.",
+  },
+];
+---
+
+<RoofingLayout
+  title="Trusted Roofers Weston-super-Mare | Majestic Roofing"
+  description="Family-run roofing experts with over 20 years experience serving Weston-super-Mare. Free quotes, no hidden fees, 15-year warranty. Call 01225 985713."
+>
+  <Header />
+  <TrustStrip />
+  <section class="hero hero--compact">
+    <Image
+      src={heroImage}
+      alt="Professional roofer working on a Weston-super-Mare property"
+      class="hero__bg"
+      widths={[600, 900, 1200]}
+      loading="eager"
+    />
+    <div class="hero__inner hero__inner--compact">
+      <div class="hero__content hero__content--compact">
+        <div class="hero__rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>Rated 5/5 by customers</span>
+        </div>
+        <h1 class="hero__title">Expert Roofers Serving Weston-super-Mare &amp; Somerset</h1>
+        <p class="hero__subtitle">Roofers who care about your home as much as you do.</p>
+      </div>
+    </div>
+    <a href="#quote-form" class="hero__scroll-arrow" aria-label="Scroll to quote form">
+      <img src="/scroll-arrow.gif" alt="" width="64" height="64" />
+    </a>
+  </section>
+  <NativeQuoteForm phone={phone} webhookUrl={webhookUrl} location={location} yearsServing={20} />
+  <Accreditations />
+  <div id="reviews" class="anchor"></div>
+  <Testimonials location={location} />
+  <div id="about" class="anchor"></div>
+  <About location={location} />
+  <div id="services" class="anchor"></div>
+  <ServicesGrid location={location} />
+  <PlatformRatings />
+  <div id="why-us" class="anchor"></div>
+  <WhyChooseUs />
+  <div id="roof-repairs" class="anchor"></div>
+  <RoofRepairs />
+  <div id="process" class="anchor"></div>
+  <Steps />
+  <div id="new-roofs" class="anchor"></div>
+  <NewRoofs />
+  <div id="faq" class="anchor"></div>
+  <Faq items={faqs} />
+  <FinalCta />
+  <UspBar />
+  <Footer />
+  <MobileBar />
+</RoofingLayout>
+
+<style is:global>
+  /* Compact hero variant — overrides the 2-column grid defined on
+     .hero__inner in roofing.css so content can centre-stack. */
+  .hero.hero--compact {
+    text-align: center;
+  }
+  .hero__inner.hero__inner--compact {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: none;
+    gap: 0;
+    padding: 32px 24px 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero__content.hero__content--compact {
+    max-width: 960px;
+    text-align: center;
+    padding-top: 0;
+  }
+  .hero__content.hero__content--compact .hero__title {
+    text-wrap: balance;
+  }
+  .hero__content.hero__content--compact .hero__rating {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .hero__content.hero__content--compact .hero__title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+  }
+  .hero__content.hero__content--compact .hero__subtitle {
+    margin-bottom: 0;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: balance;
+  }
+  .hero .hero__scroll-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 4px 0 8px;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s;
+    position: relative;
+    z-index: 2;
+  }
+  .hero .hero__scroll-arrow:hover {
+    color: var(--white);
+  }
+  /* NQF card sits directly below dark hero — tighten the gap. */
+  .nqf { padding-top: 40px; padding-bottom: 40px; }
+  .nqf__card { padding: 0 8px; }
+  .nqf__title,
+  .nqf__question {
+    text-wrap: balance;
+  }
+  /* On desktop give the headline/subheadline enough room to stay on 1 line;
+     keep the option buttons at their original compact width. NQF has
+     Astro-scoped styles so we need !important to win the cascade. */
+  @media (min-width: 641px) {
+    .nqf__inner { max-width: 900px !important; }
+    .nqf__options,
+    .nqf__form {
+      max-width: 580px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  /* Desktop subheadline standard: 20px across all section leads. */
+  .hero__content.hero__content--compact .hero__subtitle,
+  .section__header p,
+  .final-cta__subtitle,
+  .service-detail__left p {
+    font-size: 20px;
+  }
+
+  @media (max-width: 640px) {
+    .hero__inner.hero__inner--compact {
+      padding: 24px 16px 0;
+    }
+    .hero__content.hero__content--compact .hero__rating {
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .hero__content.hero__content--compact .hero__title {
+      margin-bottom: 10px;
+    }
+    .hero .hero__scroll-arrow {
+      padding: 4px 0 8px;
+    }
+    .nqf { padding-top: 32px; padding-bottom: 24px; }
+
+    /* Standardise every mobile subheadline/lead paragraph at 18px. */
+    .hero__content.hero__content--compact .hero__subtitle,
+    .section__header p,
+    .final-cta__subtitle,
+    .service-detail__left p {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<style>
+  .anchor {
+    display: block;
+    height: 0;
+    scroll-margin-top: 110px;
+  }
+  @media (max-width: 640px) {
+    .anchor {
+      scroll-margin-top: 80px;
+    }
+  }
+</style>
