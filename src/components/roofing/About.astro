@@ -1,13 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import img1 from '../../assets/roofing/images/bath/hero-slate-reroof-bath.webp';
-import img2 from '../../assets/roofing/images/bath/new-roof-grey-tile-bath.webp';
-import img3 from '../../assets/roofing/images/bath/new-roof-brown-tile-bath.webp';
-import img4 from '../../assets/roofing/images/bath/majestic-logo-bath.webp';
-import img5 from '../../assets/roofing/images/bath/flat-roof-grp-bath.webp';
-import img6 from '../../assets/roofing/images/bath/gutters-blue-house-bath.webp';
-import img7 from '../../assets/roofing/images/bath/new-tile-roof-brick-house-bath.webp';
-import img8 from '../../assets/roofing/images/bath/conservatory-roof-lantern-bath.webp';
+import img1 from '../../assets/roofing/images/bath/roofer-thumbs-up-slate-roof-bath.webp';
+import img2 from '../../assets/roofing/images/bath/majestic-banner-scaffolding-bath.webp';
+import img3 from '../../assets/roofing/images/bath/slate-tile-roof-roofer-bath.webp';
+import img4 from '../../assets/roofing/images/bath/hero-slate-reroof-bath.webp';
+import img5 from '../../assets/roofing/images/bath/new-roof-grey-tile-bath.webp';
+import img6 from '../../assets/roofing/images/bath/new-roof-brown-tile-bath.webp';
+import img7 from '../../assets/roofing/images/bath/flat-roof-grp-bath.webp';
+import img8 from '../../assets/roofing/images/bath/gutters-blue-house-bath.webp';
+import img9 from '../../assets/roofing/images/bath/new-tile-roof-brick-house-bath.webp';
+import img10 from '../../assets/roofing/images/bath/conservatory-roof-lantern-bath.webp';
 
 interface Props {
   phone?: string;
@@ -17,14 +19,16 @@ interface Props {
 const { phone = '01225 985713', location = 'Bath' } = Astro.props;
 
 const gallery = [
-  { src: img1, alt: `Full slate re-roof in progress by Majestic Roofing in ${location}` },
-  { src: img2, alt: `New grey tile roof fitted on a ${location} home` },
-  { src: img3, alt: `New brown tile roof on a ${location} bungalow` },
-  { src: img4, alt: 'Majestic Property Services logo' },
-  { src: img5, alt: `New GRP flat roof installation in ${location}` },
-  { src: img6, alt: `New guttering and fascias fitted to a ${location} house` },
-  { src: img7, alt: `Clay tile roof on a ${location} brick house` },
-  { src: img8, alt: `Conservatory lantern roof installed in ${location}` },
+  { src: img1, alt: `Majestic Services roofer on a completed slate roof in ${location}` },
+  { src: img2, alt: `Majestic Property Services banner on a job site in ${location}` },
+  { src: img3, alt: `Roofer fitting slate tiles with lead ridge flashing on a ${location} roof` },
+  { src: img4, alt: `Full slate re-roof in progress by Majestic Roofing in ${location}` },
+  { src: img5, alt: `New grey tile roof fitted on a ${location} home` },
+  { src: img6, alt: `New brown tile roof on a ${location} bungalow` },
+  { src: img7, alt: `New GRP flat roof installation in ${location}` },
+  { src: img8, alt: `New guttering and fascias fitted to a ${location} house` },
+  { src: img9, alt: `Clay tile roof on a ${location} brick house` },
+  { src: img10, alt: `Conservatory lantern roof installed in ${location}` },
 ];
 ---
 
